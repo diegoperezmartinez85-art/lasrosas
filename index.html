@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#0f0f11"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Las Rosas"><meta name="nx-build" content="11161647">
+<head><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#0f0f11"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Las Rosas"><meta name="nx-build" content="11161651">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <title>Las Rosas · Mapa de lotes</title>
@@ -271,7 +271,7 @@ body.adm.sh .admbar{display:none}
 .nvcard{position:fixed;left:20px;right:84px;bottom:calc(env(safe-area-inset-bottom,0px) + 66px);z-index:4;display:flex;align-items:center;gap:9px;padding:10px 10px 10px 12px;border-radius:14px;border:1px solid rgba(34,211,238,.55);background:rgba(8,20,26,.92);color:#e8e8ec;font:600 13.5px -apple-system,system-ui,sans-serif;text-align:left;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.45)}
 .nvcard b{flex:none;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;background:#22d3ee;color:#00262c;padding:3px 7px;border-radius:7px}
 .nvcard span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.nvcard svg{flex:none;width:16px;height:16px;fill:none;stroke:#67e8f9;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.nvcard .ncx{flex:none;width:30px;height:30px;margin:-4px -2px -4px 0;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.08)}.nvcard .ncx svg{width:14px;height:14px;fill:none;stroke:#cbd5e1;stroke-width:2.4;stroke-linecap:round}
 body.sh .nvcard,body:has(.modal.on) .nvcard{display:none!important}
 </style></head>
 <body>
@@ -527,7 +527,7 @@ async function load(){$('pbody').innerHTML='<div class="pld">Cargando…</div>';
 $('wx').onclick=()=>{openM('mp');load()};$('wx').setAttribute('role','button');$('wx').tabIndex=0;
 $('wx').onkeydown=e=>{if(e.key==='Enter')$('wx').click()}})();
 </script>
-<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a8059f322e8f40e684d926ac94b56d82"}'></script><!-- End Cloudflare Web Analytics --><script>(function(){var B='11161647';try{navigator.serviceWorker&&navigator.serviceWorker.getRegistrations().then(function(r){r.forEach(function(x){x.update()})})}catch(e){}if(/[?&]v=/.test(location.search))return;fetch(location.pathname+'?chk='+Date.now(),{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var m=t.match(/<meta name="nx-build" content="([0-9]+)"/);if(m&&m[1]!==B)location.replace(location.pathname+'?v='+m[1])}).catch(function(){})})()</script><script>(function(){var st=document.getElementById('stage');if(!st)return;st.addEventListener('touchmove',function(e){if(e.target.closest&&e.target.closest('#poic'))return;if(e.cancelable)e.preventDefault()},{passive:false});st.addEventListener('touchstart',function(e){if(e.touches.length>1&&e.cancelable)e.preventDefault()},{passive:false});['gesturestart','gesturechange','gestureend'].forEach(function(t){document.addEventListener(t,function(e){e.preventDefault()},{passive:false})})})()</script><script>window.NXI={title:'Instalá el mapa de Las Rosas',sub:'Abrilo como una app, sin descargar nada',icon:'/icon-192.png',delay:7000,delayIos:9000,pos:'bottom',offset:12,key:'nx_inst_mapa-lasrosas',busy:function(){var m=document.querySelector('.modal.on,.ov.on');return !!m}};</script><script>// NEXOS · Aviso para instalar la app (Android: botón Instalar · iPhone: cómo "Agregar a inicio")
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a8059f322e8f40e684d926ac94b56d82"}'></script><!-- End Cloudflare Web Analytics --><script>(function(){var B='11161651';try{navigator.serviceWorker&&navigator.serviceWorker.getRegistrations().then(function(r){r.forEach(function(x){x.update()})})}catch(e){}if(/[?&]v=/.test(location.search))return;fetch(location.pathname+'?chk='+Date.now(),{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var m=t.match(/<meta name="nx-build" content="([0-9]+)"/);if(m&&m[1]!==B)location.replace(location.pathname+'?v='+m[1])}).catch(function(){})})()</script><script>(function(){var st=document.getElementById('stage');if(!st)return;st.addEventListener('touchmove',function(e){if(e.target.closest&&e.target.closest('#poic'))return;if(e.cancelable)e.preventDefault()},{passive:false});st.addEventListener('touchstart',function(e){if(e.touches.length>1&&e.cancelable)e.preventDefault()},{passive:false});['gesturestart','gesturechange','gestureend'].forEach(function(t){document.addEventListener(t,function(e){e.preventDefault()},{passive:false})})})()</script><script>window.NXI={title:'Instalá el mapa de Las Rosas',sub:'Abrilo como una app, sin descargar nada',icon:'/icon-192.png',delay:7000,delayIos:9000,pos:'bottom',offset:12,key:'nx_inst_mapa-lasrosas',busy:function(){var m=document.querySelector('.modal.on,.ov.on');return !!m}};</script><script>// NEXOS · Aviso para instalar la app (Android: botón Instalar · iPhone: cómo "Agregar a inicio")
 // Configuración opcional antes de cargar: window.NXI = { title, sub, icon, pos:'top'|'bottom', offset, key, skip:fn }
 (function () {
   var C = window.NXI || {};
@@ -618,15 +618,16 @@ const m=document.createElement('div');m.className='modal';m.id='mnv';
 m.innerHTML='<div class="card nvc"><button class="cl" id="nvx" aria-label="Cerrar"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button><h2>Novedades del barrio</h2><p class="s" id="nvs">Lo último de Las Rosas.</p><div id="nva"></div><div id="nvl"></div></div>';
 document.body.appendChild(m);
 const closeNv=()=>m.classList.remove('on');$$('nvx').onclick=closeNv;m.addEventListener('click',e=>{if(e.target===m)closeNv()});
-function openNews(){renderNews();m.classList.add('on');if(!ADM&&DATA.news[0]){try{localStorage.setItem(KN,DATA.news[0].d)}catch(e){}cn.classList.remove('new')}}
+function openNews(){renderNews();m.classList.add('on');if(!ADM){seenNow();card();$$('nvt').classList.remove('on')}}
 function renderNews(){const L=$$('nvl');$$('nvs').textContent=ADM?'Escribí una novedad y tocá Publicar. Aparece al instante en el mapa.':'Lo último de Las Rosas.';
  $$('nva').style.display=ADM?'':'none';
  L.innerHTML=DATA.news.length?DATA.news.map(n=>'<div class="nvi"><small>'+fdate(n.d)+'</small>'+(n.t?'<b>'+esc(n.t)+'</b>':'')+(n.x?'<p>'+esc(n.x).replace(/\n/g,'<br>')+'</p>':'')+(ADM?'<button class="nvdel" data-id="'+esc(n.id)+'">Borrar</button>':'')+'</div>').join(''):'<div class="nve">Todavía no hay novedades.</div>';
  L.querySelectorAll('.nvdel').forEach(bt=>bt.onclick=()=>{if(!confirmDel(bt))return;DATA.news=DATA.news.filter(n=>n.id!==bt.dataset.id);renderNews();paint();save('Novedad borrada')})}
 function confirmDel(bt){if(bt.dataset.ok)return true;bt.dataset.ok=1;bt.textContent='Tocá de nuevo para borrar';setTimeout(()=>{if(bt.isConnected){delete bt.dataset.ok;bt.textContent='Borrar'}},3000);return false}
-let toasted=false;function maybeToastNews(){if(toasted||ADM||!DATA.news.length||/[?&]panel/.test(location.search))return;let seen='';try{seen=localStorage.getItem(KN)||''}catch(e){}if(DATA.news[0].d>seen){toasted=true;setTimeout(()=>{if(document.querySelector('.modal.on'))return;const t=$$('nvt');t.querySelector('span').textContent=DATA.news[0].t||DATA.news[0].x.slice(0,60);t.classList.add('on');setTimeout(()=>t.classList.remove('on'),7000)},1800)}}
-const nc=document.createElement('button');nc.id='nvc';nc.className='nvcard';nc.innerHTML='<b>Novedad</b><span></span><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>';nc.onclick=()=>openNews();document.body.appendChild(nc);
-function card(){const n=DATA.news[0];nc.style.display=n&&!ADM?'':'none';if(n)nc.querySelector('span').textContent=(n.t||n.x).slice(0,80)+(DATA.news.length>1?'  ·  '+DATA.news.length+' novedades':'')}
+let toasted=false;function maybeToastNews(){if(toasted||ADM||!DATA.news.length||/[?&]panel/.test(location.search)||/^\/panel/.test(location.pathname))return;let seen='';try{seen=localStorage.getItem(KN)||''}catch(e){}if(DATA.news[0].d>seen){toasted=true;setTimeout(()=>{if(document.querySelector('.modal.on'))return;const t=$$('nvt');t.querySelector('span').textContent=DATA.news[0].t||DATA.news[0].x.slice(0,60);t.classList.add('on');setTimeout(()=>t.classList.remove('on'),7000)},1800)}}
+const nc=document.createElement('button');nc.id='nvc';nc.className='nvcard';nc.innerHTML='<b>Novedad</b><span></span><i class="ncx" role="button" aria-label="Cerrar"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></i>';nc.onclick=e=>{if(e.target.closest('.ncx')){e.stopPropagation();seenNow();card();return}openNews()};document.body.appendChild(nc);
+function seenNow(){if(DATA.news[0]){try{localStorage.setItem(KN,DATA.news[0].d)}catch(e){}}cn.classList.remove('new')}
+function card(){const n=DATA.news[0];let seen='';try{seen=localStorage.getItem(KN)||''}catch(e){}nc.style.display=n&&!ADM&&n.d>seen?'':'none';if(n)nc.querySelector('span').textContent=(n.t||n.x).slice(0,80)+(DATA.news.length>1?'  ·  '+DATA.news.length+' novedades':'')}
 const nt=document.createElement('button');nt.id='nvt';nt.className='nvt';nt.innerHTML='<b>Novedad</b><span></span>';nt.onclick=()=>{nt.classList.remove('on');openNews()};document.body.appendChild(nt);
 
 // ---- ficha del lote: etiqueta Disponible + boton de panel
@@ -639,7 +640,7 @@ const _pick=pick;pick=function(n,fly){if(ADM&&fly===false){const l=byN[n],r=l&&l
  toggle(n);return}_pick(n,fly);sheetDisp(n)};
 
 // ---- modo panel
-const qs=new URLSearchParams(location.search);
+const qs=new URLSearchParams(location.search);const PANEL=qs.has('panel')||/^\/panel\/?/.test(location.pathname);
 function tokOk(){try{const t=JSON.parse(localStorage.getItem(KT)||'null');if(t&&t.exp>Date.now()+60e3){TOK=t.token;return true}}catch(e){}return false}
 const lm=document.createElement('div');lm.className='modal';lm.id='mlg';
 lm.innerHTML='<div class="card"><h2>Panel de Las Rosas</h2><p class="s">Ingresá para marcar lotes disponibles y publicar novedades.</p><form id="lgf"><label class="fl">Usuario<input id="lgu" autocomplete="username" autocapitalize="none" spellcheck="false"></label><label class="fl">Clave<input id="lgp" type="password" autocomplete="current-password"></label><div class="lge" id="lge"></div><button class="bt p" type="submit" id="lgb">Ingresar</button><a class="bt g" href="/">Ver el mapa público</a></form></div>';
@@ -676,9 +677,9 @@ async function doSave(){const body=JSON.stringify({disp:DATA.disp,news:DATA.news
  catch(e){$$('abs').textContent='Sin conexión: reintentando';$$('abs').className='err';clearTimeout(st);st=setTimeout(doSave,4000)}}
 addEventListener('beforeunload',e=>{if(pending){e.preventDefault();e.returnValue=''}});
 function enterAdm(){ADM=true;document.body.classList.add('adm');$$('ntg').textContent='Panel · tocá un lote para marcarlo';paint();load();toast('Tocá un lote para marcarlo o desmarcarlo')}
-if(qs.has('panel')){[650,1100,1800].forEach(t=>setTimeout(()=>{const w=$$('mw');if(w)w.classList.remove('on')},t));try{sessionStorage.setItem('lrs_w','1')}catch(e){}document.querySelectorAll('.modal.on').forEach(x=>x.classList.remove('on'));
+if(PANEL){[650,1100,1800].forEach(t=>setTimeout(()=>{const w=$$('mw');if(w)w.classList.remove('on')},t));try{sessionStorage.setItem('lrs_w','1')}catch(e){}document.querySelectorAll('.modal.on').forEach(x=>x.classList.remove('on'));
  if(tokOk())enterAdm();else setTimeout(()=>{document.querySelectorAll('.modal.on').forEach(x=>x.classList.remove('on'));lm.classList.add('on');$$('lgu').focus()},300);
- if(window.NXI)window.NXI.busy=()=>true}
+ }
 paint();load();
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)load()});setInterval(()=>{if(!document.hidden&&!pending)load()},120000);
 })();
