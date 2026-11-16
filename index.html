@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#0f0f11"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Las Rosas"><meta name="nx-build" content="11161619">
+<head><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#0f0f11"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Las Rosas"><meta name="nx-build" content="11161647">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <title>Las Rosas · Mapa de lotes</title>
@@ -259,13 +259,20 @@ body:has(.sheet.on) .nxpw,body:has(.modal.on) .nxpw{opacity:0;pointer-events:non
 .nvt span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .admbar{display:none;position:fixed;left:10px;right:10px;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);z-index:7;padding:10px 12px;border-radius:18px;background:rgba(18,18,24,.96);border:1px solid rgba(250,204,21,.45);box-shadow:0 14px 40px rgba(0,0,0,.6);font:600 13px -apple-system,system-ui,sans-serif;color:#e8e8ec}
 body.adm .admbar{display:block}
-body.adm .nxpw,body.adm .zoom{display:none}
+body.adm .nxpw{display:none}
+body.adm .zoom{bottom:calc(env(safe-area-inset-bottom,0px) + 128px)!important}
 body.adm.sh .admbar{display:none}
 .ab1{display:flex;align-items:center;gap:8px;margin-bottom:8px}
 .ab1 b{background:#facc15;color:#1c1600;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:7px}
 .ab1 em{margin-left:auto;font-style:normal;font-size:12px;color:#8a8a99}.ab1 em.ok{color:#86efac}.ab1 em.err{color:#fca5a5}
 .ab2{display:flex;gap:7px}
 .ab2 button{flex:1;height:38px;border-radius:11px;border:1px solid #34343f;background:rgba(255,255,255,.05);color:#e8e8ec;font:700 13px -apple-system,system-ui,sans-serif;cursor:pointer}
+
+.nvcard{position:fixed;left:20px;right:84px;bottom:calc(env(safe-area-inset-bottom,0px) + 66px);z-index:4;display:flex;align-items:center;gap:9px;padding:10px 10px 10px 12px;border-radius:14px;border:1px solid rgba(34,211,238,.55);background:rgba(8,20,26,.92);color:#e8e8ec;font:600 13.5px -apple-system,system-ui,sans-serif;text-align:left;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.nvcard b{flex:none;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;background:#22d3ee;color:#00262c;padding:3px 7px;border-radius:7px}
+.nvcard span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nvcard svg{flex:none;width:16px;height:16px;fill:none;stroke:#67e8f9;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+body.sh .nvcard,body:has(.modal.on) .nvcard{display:none!important}
 </style></head>
 <body>
 <div id="stage"><svg id="svg" viewBox="0 0 2312 3657" preserveAspectRatio="xMidYMid meet"><g id="world"><defs><pattern id="hz" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V12" stroke="rgba(160,160,180,.22)" stroke-width="2"/></pattern><radialGradient id="vg" cx="50%" cy="45%" r="70%"><stop offset="0" stop-color="#16161b"/><stop offset="1" stop-color="#0d0d10"/></radialGradient></defs>
@@ -520,7 +527,7 @@ async function load(){$('pbody').innerHTML='<div class="pld">Cargando…</div>';
 $('wx').onclick=()=>{openM('mp');load()};$('wx').setAttribute('role','button');$('wx').tabIndex=0;
 $('wx').onkeydown=e=>{if(e.key==='Enter')$('wx').click()}})();
 </script>
-<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a8059f322e8f40e684d926ac94b56d82"}'></script><!-- End Cloudflare Web Analytics --><script>(function(){var B='11161619';try{navigator.serviceWorker&&navigator.serviceWorker.getRegistrations().then(function(r){r.forEach(function(x){x.update()})})}catch(e){}if(/[?&]v=/.test(location.search))return;fetch(location.pathname+'?chk='+Date.now(),{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var m=t.match(/<meta name="nx-build" content="([0-9]+)"/);if(m&&m[1]!==B)location.replace(location.pathname+'?v='+m[1])}).catch(function(){})})()</script><script>(function(){var st=document.getElementById('stage');if(!st)return;st.addEventListener('touchmove',function(e){if(e.target.closest&&e.target.closest('#poic'))return;if(e.cancelable)e.preventDefault()},{passive:false});st.addEventListener('touchstart',function(e){if(e.touches.length>1&&e.cancelable)e.preventDefault()},{passive:false});['gesturestart','gesturechange','gestureend'].forEach(function(t){document.addEventListener(t,function(e){e.preventDefault()},{passive:false})})})()</script><script>window.NXI={title:'Instalá el mapa de Las Rosas',sub:'Abrilo como una app, sin descargar nada',icon:'/icon-192.png',delay:7000,delayIos:9000,pos:'bottom',offset:12,key:'nx_inst_mapa-lasrosas',busy:function(){var m=document.querySelector('.modal.on,.ov.on');return !!m}};</script><script>// NEXOS · Aviso para instalar la app (Android: botón Instalar · iPhone: cómo "Agregar a inicio")
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a8059f322e8f40e684d926ac94b56d82"}'></script><!-- End Cloudflare Web Analytics --><script>(function(){var B='11161647';try{navigator.serviceWorker&&navigator.serviceWorker.getRegistrations().then(function(r){r.forEach(function(x){x.update()})})}catch(e){}if(/[?&]v=/.test(location.search))return;fetch(location.pathname+'?chk='+Date.now(),{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var m=t.match(/<meta name="nx-build" content="([0-9]+)"/);if(m&&m[1]!==B)location.replace(location.pathname+'?v='+m[1])}).catch(function(){})})()</script><script>(function(){var st=document.getElementById('stage');if(!st)return;st.addEventListener('touchmove',function(e){if(e.target.closest&&e.target.closest('#poic'))return;if(e.cancelable)e.preventDefault()},{passive:false});st.addEventListener('touchstart',function(e){if(e.touches.length>1&&e.cancelable)e.preventDefault()},{passive:false});['gesturestart','gesturechange','gestureend'].forEach(function(t){document.addEventListener(t,function(e){e.preventDefault()},{passive:false})})})()</script><script>window.NXI={title:'Instalá el mapa de Las Rosas',sub:'Abrilo como una app, sin descargar nada',icon:'/icon-192.png',delay:7000,delayIos:9000,pos:'bottom',offset:12,key:'nx_inst_mapa-lasrosas',busy:function(){var m=document.querySelector('.modal.on,.ov.on');return !!m}};</script><script>// NEXOS · Aviso para instalar la app (Android: botón Instalar · iPhone: cómo "Agregar a inicio")
 // Configuración opcional antes de cargar: window.NXI = { title, sub, icon, pos:'top'|'bottom', offset, key, skip:fn }
 (function () {
   var C = window.NXI || {};
@@ -593,7 +600,7 @@ const lab=n=>{const l=byN[n];return l?(l.t||l.n):n};
 function paint(){DS=new Set(DATA.disp);LOTS.forEach(l=>l.el.classList.toggle('disp',DS.has(l.n)));
  const c=$$('pcd');if(c){c.style.display=DS.size?'':'none';c.querySelector('b').textContent=DS.size}
  const nb=$$('pcn');if(nb){nb.style.display=(DATA.news.length||ADM)?'':'none';const nn=$$('pcnn');let seen='';try{seen=localStorage.getItem(KN)||''}catch(e){}const fresh=DATA.news.length&&DATA.news[0].d>seen;nn.textContent=DATA.news.length;nb.classList.toggle('new',!!fresh&&!ADM)}
- if(ADM)admBar();if(typeof cur!=='undefined'&&cur&&cur.n)sheetDisp(cur.n)}
+ if(typeof card==='function')card();if(ADM)admBar();if(typeof cur!=='undefined'&&cur&&cur.n)sheetDisp(cur.n)}
 function sheetDisp(n){const e=$$('dspb');if(e)e.style.display=DS.has(n)?'':'none';const a=$$('admt');if(a){a.style.display=ADM?'':'none';a.textContent=DS.has(n)?'Quitar de disponibles':'Marcar como disponible';a.classList.toggle('on',DS.has(n))}}
 async function load(){try{const r=await fetch(API+'/data?b='+B,{cache:'no-store'});if(!r.ok)return;const d=await r.json();if(!Array.isArray(d.disp))return;
  if(ADM&&pending)return;DATA=d;try{localStorage.setItem(KD,JSON.stringify(d))}catch(e){}paint();maybeToastNews()}catch(e){}}
@@ -617,7 +624,9 @@ function renderNews(){const L=$$('nvl');$$('nvs').textContent=ADM?'Escribí una 
  L.innerHTML=DATA.news.length?DATA.news.map(n=>'<div class="nvi"><small>'+fdate(n.d)+'</small>'+(n.t?'<b>'+esc(n.t)+'</b>':'')+(n.x?'<p>'+esc(n.x).replace(/\n/g,'<br>')+'</p>':'')+(ADM?'<button class="nvdel" data-id="'+esc(n.id)+'">Borrar</button>':'')+'</div>').join(''):'<div class="nve">Todavía no hay novedades.</div>';
  L.querySelectorAll('.nvdel').forEach(bt=>bt.onclick=()=>{if(!confirmDel(bt))return;DATA.news=DATA.news.filter(n=>n.id!==bt.dataset.id);renderNews();paint();save('Novedad borrada')})}
 function confirmDel(bt){if(bt.dataset.ok)return true;bt.dataset.ok=1;bt.textContent='Tocá de nuevo para borrar';setTimeout(()=>{if(bt.isConnected){delete bt.dataset.ok;bt.textContent='Borrar'}},3000);return false}
-let toasted=false;function maybeToastNews(){if(toasted||ADM||!DATA.news.length)return;let seen='';try{seen=localStorage.getItem(KN)||''}catch(e){}if(DATA.news[0].d>seen){toasted=true;setTimeout(()=>{if(document.querySelector('.modal.on'))return;const t=$$('nvt');t.querySelector('span').textContent=DATA.news[0].t||DATA.news[0].x.slice(0,60);t.classList.add('on');setTimeout(()=>t.classList.remove('on'),7000)},1800)}}
+let toasted=false;function maybeToastNews(){if(toasted||ADM||!DATA.news.length||/[?&]panel/.test(location.search))return;let seen='';try{seen=localStorage.getItem(KN)||''}catch(e){}if(DATA.news[0].d>seen){toasted=true;setTimeout(()=>{if(document.querySelector('.modal.on'))return;const t=$$('nvt');t.querySelector('span').textContent=DATA.news[0].t||DATA.news[0].x.slice(0,60);t.classList.add('on');setTimeout(()=>t.classList.remove('on'),7000)},1800)}}
+const nc=document.createElement('button');nc.id='nvc';nc.className='nvcard';nc.innerHTML='<b>Novedad</b><span></span><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>';nc.onclick=()=>openNews();document.body.appendChild(nc);
+function card(){const n=DATA.news[0];nc.style.display=n&&!ADM?'':'none';if(n)nc.querySelector('span').textContent=(n.t||n.x).slice(0,80)+(DATA.news.length>1?'  ·  '+DATA.news.length+' novedades':'')}
 const nt=document.createElement('button');nt.id='nvt';nt.className='nvt';nt.innerHTML='<b>Novedad</b><span></span>';nt.onclick=()=>{nt.classList.remove('on');openNews()};document.body.appendChild(nt);
 
 // ---- ficha del lote: etiqueta Disponible + boton de panel
@@ -625,7 +634,9 @@ const db=document.createElement('div');db.id='dspb';db.className='dspb';db.style
 const gth=$$('gth');gth.parentNode.insertBefore(db,gth);
 const at=document.createElement('button');at.id='admt';at.className='admt';at.style.display='none';gth.parentNode.insertBefore(at,gth);
 at.onclick=()=>{if(cur&&cur.n)toggle(cur.n)};
-const _pick=pick;pick=function(n,fly){if(ADM&&fly===false){toggle(n);return}_pick(n,fly);sheetDisp(n)};
+const _pick=pick;pick=function(n,fly){if(ADM&&fly===false){const l=byN[n],r=l&&l.el.getBoundingClientRect();
+ if(r&&Math.min(r.width,r.height)<22){const k=Math.min(maxS/sc,30/Math.max(1,Math.min(r.width,r.height)));const st=stage.getBoundingClientRect();zoomAt(Math.max(2,k),r.x+r.width/2-st.left,r.y+r.height/2-st.top,380);toast('Ahora tocá el lote para marcarlo');return}
+ toggle(n);return}_pick(n,fly);sheetDisp(n)};
 
 // ---- modo panel
 const qs=new URLSearchParams(location.search);
@@ -665,7 +676,7 @@ async function doSave(){const body=JSON.stringify({disp:DATA.disp,news:DATA.news
  catch(e){$$('abs').textContent='Sin conexión: reintentando';$$('abs').className='err';clearTimeout(st);st=setTimeout(doSave,4000)}}
 addEventListener('beforeunload',e=>{if(pending){e.preventDefault();e.returnValue=''}});
 function enterAdm(){ADM=true;document.body.classList.add('adm');$$('ntg').textContent='Panel · tocá un lote para marcarlo';paint();load();toast('Tocá un lote para marcarlo o desmarcarlo')}
-if(qs.has('panel')){try{sessionStorage.setItem('lrs_w','1')}catch(e){}document.querySelectorAll('.modal.on').forEach(x=>x.classList.remove('on'));
+if(qs.has('panel')){[650,1100,1800].forEach(t=>setTimeout(()=>{const w=$$('mw');if(w)w.classList.remove('on')},t));try{sessionStorage.setItem('lrs_w','1')}catch(e){}document.querySelectorAll('.modal.on').forEach(x=>x.classList.remove('on'));
  if(tokOk())enterAdm();else setTimeout(()=>{document.querySelectorAll('.modal.on').forEach(x=>x.classList.remove('on'));lm.classList.add('on');$$('lgu').focus()},300);
  if(window.NXI)window.NXI.busy=()=>true}
 paint();load();
