@@ -1,0 +1,24 @@
+name: Copia diaria del panel
+on:
+  schedule:
+    - cron: '17 9 * * *'   # 06:17 hora Argentina
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bajar datos del panel
+        run: |
+          mkdir -p backup
+          API=$(grep -o "const API='[^']*'" index.html | head -1 | cut -d"'" -f2)
+          curl -fsS "$API/data?b=lasrosas" -o backup/lasrosas.json
+          python3 -c "import json;d=json.load(open('backup/lasrosas.json'));assert isinstance(d['disp'],list)"
+      - name: Guardar si cambio
+        run: |
+          git config user.name "Nexos backup"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add backup/lasrosas.json
+          git diff --cached --quiet || (git commit -m "Copia diaria del panel $(date -u +%F)" && git push)
