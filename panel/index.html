@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><link rel="manifest" href="/panel/manifest.webmanifest"><meta name="theme-color" content="#0f0f11"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Panel Las Rosas"><meta name="robots" content="noindex"><meta name="nx-build" content="11161655">
+<head><link rel="manifest" href="/panel/manifest.webmanifest"><meta name="theme-color" content="#0f0f11"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Panel Las Rosas"><meta name="robots" content="noindex"><meta name="nx-build" content="11161700">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <title>Panel · Las Rosas</title>
@@ -273,6 +273,12 @@ body.adm.sh .admbar{display:none}
 .nvcard span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .nvcard .ncx{flex:none;width:30px;height:30px;margin:-4px -2px -4px 0;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.08)}.nvcard .ncx svg{width:14px;height:14px;fill:none;stroke:#cbd5e1;stroke-width:2.4;stroke-linecap:round}
 body.sh .nvcard,body:has(.modal.on) .nvcard{display:none!important}
+
+.btn.bell{position:relative}
+.btn.bell.new{color:#67e8f9;border-color:rgba(34,211,238,.6);box-shadow:0 0 16px rgba(34,211,238,.3)}
+.btn.bell.new svg{animation:ring1 1.6s ease-in-out 2}
+@keyframes ring1{0%,60%,100%{transform:none}10%,30%{transform:rotate(14deg)}20%,40%{transform:rotate(-14deg)}}
+.bdg2{position:absolute;top:-5px;right:-5px;min-width:19px;height:19px;padding:0 5px;border-radius:10px;background:#ef4444;color:#fff;font:800 11px/19px -apple-system,system-ui,sans-serif;font-style:normal;text-align:center;box-shadow:0 0 0 2px #0f0f11}
 </style></head>
 <body>
 <div id="stage"><svg id="svg" viewBox="0 0 2312 3657" preserveAspectRatio="xMidYMid meet"><g id="world"><defs><pattern id="hz" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V12" stroke="rgba(160,160,180,.22)" stroke-width="2"/></pattern><radialGradient id="vg" cx="50%" cy="45%" r="70%"><stop offset="0" stop-color="#16161b"/><stop offset="1" stop-color="#0d0d10"/></radialGradient></defs>
@@ -527,7 +533,7 @@ async function load(){$('pbody').innerHTML='<div class="pld">Cargando…</div>';
 $('wx').onclick=()=>{openM('mp');load()};$('wx').setAttribute('role','button');$('wx').tabIndex=0;
 $('wx').onkeydown=e=>{if(e.key==='Enter')$('wx').click()}})();
 </script>
-<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a8059f322e8f40e684d926ac94b56d82"}'></script><!-- End Cloudflare Web Analytics --><script>(function(){var B='11161655';try{navigator.serviceWorker&&navigator.serviceWorker.getRegistrations().then(function(r){r.forEach(function(x){x.update()})})}catch(e){}if(/[?&]v=/.test(location.search))return;fetch(location.pathname+'?chk='+Date.now(),{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var m=t.match(/<meta name="nx-build" content="([0-9]+)"/);if(m&&m[1]!==B)location.replace(location.pathname+'?v='+m[1])}).catch(function(){})})()</script><script>(function(){var st=document.getElementById('stage');if(!st)return;st.addEventListener('touchmove',function(e){if(e.target.closest&&e.target.closest('#poic'))return;if(e.cancelable)e.preventDefault()},{passive:false});st.addEventListener('touchstart',function(e){if(e.touches.length>1&&e.cancelable)e.preventDefault()},{passive:false});['gesturestart','gesturechange','gestureend'].forEach(function(t){document.addEventListener(t,function(e){e.preventDefault()},{passive:false})})})()</script><script>window.NXI={title:'Instalá el panel de Las Rosas',sub:'Abrilo como una app, sin descargar nada',icon:'/panel/icon-192.png',delay:7000,delayIos:9000,pos:'bottom',offset:12,key:'nx_inst_panel-lasrosas',busy:function(){var m=document.querySelector('.modal.on,.ov.on');return !!m}};</script><script>// NEXOS · Aviso para instalar la app (Android: botón Instalar · iPhone: cómo "Agregar a inicio")
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a8059f322e8f40e684d926ac94b56d82"}'></script><!-- End Cloudflare Web Analytics --><script>(function(){var B='11161700';try{navigator.serviceWorker&&navigator.serviceWorker.getRegistrations().then(function(r){r.forEach(function(x){x.update()})})}catch(e){}if(/[?&]v=/.test(location.search))return;fetch(location.pathname+'?chk='+Date.now(),{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var m=t.match(/<meta name="nx-build" content="([0-9]+)"/);if(m&&m[1]!==B)location.replace(location.pathname+'?v='+m[1])}).catch(function(){})})()</script><script>(function(){var st=document.getElementById('stage');if(!st)return;st.addEventListener('touchmove',function(e){if(e.target.closest&&e.target.closest('#poic'))return;if(e.cancelable)e.preventDefault()},{passive:false});st.addEventListener('touchstart',function(e){if(e.touches.length>1&&e.cancelable)e.preventDefault()},{passive:false});['gesturestart','gesturechange','gestureend'].forEach(function(t){document.addEventListener(t,function(e){e.preventDefault()},{passive:false})})})()</script><script>window.NXI={title:'Instalá el panel de Las Rosas',sub:'Abrilo como una app, sin descargar nada',icon:'/panel/icon-192.png',delay:7000,delayIos:9000,pos:'bottom',offset:12,key:'nx_inst_panel-lasrosas',busy:function(){var m=document.querySelector('.modal.on,.ov.on');return !!m}};</script><script>// NEXOS · Aviso para instalar la app (Android: botón Instalar · iPhone: cómo "Agregar a inicio")
 // Configuración opcional antes de cargar: window.NXI = { title, sub, icon, pos:'top'|'bottom', offset, key, skip:fn }
 (function () {
   var C = window.NXI || {};
@@ -599,7 +605,7 @@ const lab=n=>{const l=byN[n];return l?(l.t||l.n):n};
 // ---- pintar
 function paint(){DS=new Set(DATA.disp);LOTS.forEach(l=>l.el.classList.toggle('disp',DS.has(l.n)));
  const c=$$('pcd');if(c){c.style.display=DS.size?'':'none';c.querySelector('b').textContent=DS.size}
- const nb=$$('pcn');if(nb){nb.style.display=(DATA.news.length||ADM)?'':'none';const nn=$$('pcnn');let seen='';try{seen=localStorage.getItem(KN)||''}catch(e){}const fresh=DATA.news.length&&DATA.news[0].d>seen;nn.textContent=DATA.news.length;nb.classList.toggle('new',!!fresh&&!ADM)}
+ const nb=$$('pcn');if(nb){nb.style.display=(DATA.news.length||ADM)?'':'none';const nn=$$('pcnn');let seen='';try{seen=localStorage.getItem(KN)||''}catch(e){}const un=ADM?0:DATA.news.filter(n=>n.d>seen).length;nn.textContent=un>9?'9+':un;nn.style.display=un?'':'none';nb.classList.toggle('new',!!un)}
  if(typeof card==='function')card();if(ADM)admBar();if(typeof cur!=='undefined'&&cur&&cur.n)sheetDisp(cur.n)}
 function sheetDisp(n){const e=$$('dspb');if(e)e.style.display=DS.has(n)?'':'none';const a=$$('admt');if(a){a.style.display=ADM?'':'none';a.textContent=DS.has(n)?'Quitar de disponibles':'Marcar como disponible';a.classList.toggle('on',DS.has(n))}}
 async function load(){try{const r=await fetch(API+'/data?b='+B,{cache:'no-store'});if(!r.ok)return;const d=await r.json();if(!Array.isArray(d.disp))return;
@@ -610,24 +616,23 @@ const box=$$('poic');
 const cd=document.createElement('button');cd.className='pc';cd.id='pcd';cd.style.display='none';cd.innerHTML='<i style="background:#facc15;color:#facc15"></i>Disponibles <b style="margin-left:4px;color:#fde047">0</b>';
 cd.onclick=()=>{const L=[...DS].map(n=>byN[n]).filter(Boolean);if(!L.length)return;closeSheet();let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;L.forEach(l=>{x0=Math.min(x0,l.x);y0=Math.min(y0,l.y);x1=Math.max(x1,l.x+l.w);y1=Math.max(y1,l.y+l.h)});
  const s=Math.min(maxS,Math.max(minS,Math.min((vw-60)/(x1-x0+1),(vh-200)/(y1-y0+1))));go(s,vw/2-(x0+x1)/2*s,vh/2-(y0+y1)/2*s,520);toast(L.length===1?'1 lote disponible, en amarillo':L.length+' lotes disponibles, en amarillo')};
-const cn=document.createElement('button');cn.className='pc';cn.id='pcn';cn.style.display='none';cn.innerHTML='<i style="background:#22d3ee;color:#22d3ee"></i>Novedades <b id="pcnn" style="margin-left:4px;color:#67e8f9">0</b>';
+const cn=document.createElement('button');cn.className='btn bell';cn.id='pcn';cn.setAttribute('aria-label','Novedades');cn.style.display='none';cn.innerHTML='<svg viewBox="0 0 24 24"><path d="M6 9a6 6 0 1 1 12 0c0 5 2 6.5 2 6.5H4S6 14 6 9z"/><path d="M10 19a2 2 0 0 0 4 0"/></svg><i class="bdg2" id="pcnn"></i>';
 cn.onclick=()=>openNews();
-box.insertBefore(cd,box.firstChild);box.insertBefore(cn,box.firstChild);
+box.insertBefore(cd,box.firstChild);const sb=$$('bsh');sb.parentNode.insertBefore(cn,sb);
 
 const m=document.createElement('div');m.className='modal';m.id='mnv';
 m.innerHTML='<div class="card nvc"><button class="cl" id="nvx" aria-label="Cerrar"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button><h2>Novedades del barrio</h2><p class="s" id="nvs">Lo último de Las Rosas.</p><div id="nva"></div><div id="nvl"></div></div>';
 document.body.appendChild(m);
 const closeNv=()=>m.classList.remove('on');$$('nvx').onclick=closeNv;m.addEventListener('click',e=>{if(e.target===m)closeNv()});
-function openNews(){renderNews();m.classList.add('on');if(!ADM){seenNow();card();$$('nvt').classList.remove('on')}}
+function openNews(){renderNews();m.classList.add('on');if(!ADM){seenNow();$$('nvt').classList.remove('on')}}
 function renderNews(){const L=$$('nvl');$$('nvs').textContent=ADM?'Escribí una novedad y tocá Publicar. Aparece al instante en el mapa.':'Lo último de Las Rosas.';
  $$('nva').style.display=ADM?'':'none';
  L.innerHTML=DATA.news.length?DATA.news.map(n=>'<div class="nvi"><small>'+fdate(n.d)+'</small>'+(n.t?'<b>'+esc(n.t)+'</b>':'')+(n.x?'<p>'+esc(n.x).replace(/\n/g,'<br>')+'</p>':'')+(ADM?'<button class="nvdel" data-id="'+esc(n.id)+'">Borrar</button>':'')+'</div>').join(''):'<div class="nve">Todavía no hay novedades.</div>';
  L.querySelectorAll('.nvdel').forEach(bt=>bt.onclick=()=>{if(!confirmDel(bt))return;DATA.news=DATA.news.filter(n=>n.id!==bt.dataset.id);renderNews();paint();save('Novedad borrada')})}
 function confirmDel(bt){if(bt.dataset.ok)return true;bt.dataset.ok=1;bt.textContent='Tocá de nuevo para borrar';setTimeout(()=>{if(bt.isConnected){delete bt.dataset.ok;bt.textContent='Borrar'}},3000);return false}
 let toasted=false;function maybeToastNews(){if(toasted||ADM||!DATA.news.length||/[?&]panel/.test(location.search)||/^\/panel/.test(location.pathname))return;let seen='';try{seen=localStorage.getItem(KN)||''}catch(e){}if(DATA.news[0].d>seen){toasted=true;setTimeout(()=>{if(document.querySelector('.modal.on'))return;const t=$$('nvt');t.querySelector('span').textContent=DATA.news[0].t||DATA.news[0].x.slice(0,60);t.classList.add('on');setTimeout(()=>t.classList.remove('on'),7000)},1800)}}
-const nc=document.createElement('button');nc.id='nvc';nc.className='nvcard';nc.innerHTML='<b>Novedad</b><span></span><i class="ncx" role="button" aria-label="Cerrar"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></i>';nc.onclick=e=>{if(e.target.closest('.ncx')){e.stopPropagation();seenNow();card();return}openNews()};document.body.appendChild(nc);
-function seenNow(){if(DATA.news[0]){try{localStorage.setItem(KN,DATA.news[0].d)}catch(e){}}cn.classList.remove('new')}
-function card(){const n=DATA.news[0];let seen='';try{seen=localStorage.getItem(KN)||''}catch(e){}nc.style.display=n&&!ADM&&n.d>seen?'':'none';if(n)nc.querySelector('span').textContent=(n.t||n.x).slice(0,80)+(DATA.news.length>1?'  ·  '+DATA.news.length+' novedades':'')}
+function seenNow(){if(DATA.news[0]){try{localStorage.setItem(KN,DATA.news[0].d)}catch(e){}}paint()}
+function card(){}
 const nt=document.createElement('button');nt.id='nvt';nt.className='nvt';nt.innerHTML='<b>Novedad</b><span></span>';nt.onclick=()=>{nt.classList.remove('on');openNews()};document.body.appendChild(nt);
 
 // ---- ficha del lote: etiqueta Disponible + boton de panel
