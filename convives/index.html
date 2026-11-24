@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1F6F54">
+<meta name="description" content="Convives · Dúplex de 3 y 4 ambientes en Ituzaingó Norte. Maqueta 3D, disponibilidad y consulta por WhatsApp.">
+<link rel="icon" href="/icon-192.png">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Convives Ituzaingó</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Ficha de venta para celular: fachada del módulo tipo arriba, plano aéreo con volumen al centro, ficha con despiece de plantas abajo. */
+:root{
+  --bg:#F2F4F1; --panel:#FFFFFF; --ink:#16221D; --mute:#56645D; --line:#D6DDD8;
+  --accent:#1F6F54; --accent-ink:#FFFFFF; --warm:#B8733A;
+  --sky:#DCE9EE; --wall:#F7F5EF; --wall2:#E7E2D6; --wood:#B98A5A; --glass:#8FB3C2; --frame:#2B3330;
+  --t3:#E3EEF6; --t3s:#2D6A9F; --t4:#F5E8D3; --t4s:#9C5B17;
+  --green:#CFE3CF; --tree:#6FA878; --tree2:#4F8A5C; --road:#C9CFCC; --walk:#E4E8E3; --car:#8E9A97; --shadow:rgba(22,34,29,.22);
+  --sel:#D6336C;
+  --display:'Manrope',system-ui,sans-serif; --body:'Inter',system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1412; --panel:#16201C; --ink:#E7EEEA; --mute:#9BAAA2; --line:#28362F;
+  --accent:#3CB98C; --accent-ink:#04170F; --warm:#E0A06A;
+  --sky:#1B2A31; --wall:#DCD8CE; --wall2:#BDB6A6; --wood:#9C7248; --glass:#5E8796; --frame:#0E1412;
+  --t3:#1B3346; --t3s:#86BDEB; --t4:#3A2C17; --t4s:#EDB46C;
+  --green:#1D3224; --tree:#3E7A4B; --tree2:#2E5E39; --road:#2A3330; --walk:#1F2925; --car:#5A6763; --shadow:rgba(0,0,0,.45); --sel:#F472A6; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1412; --panel:#16201C; --ink:#E7EEEA; --mute:#9BAAA2; --line:#28362F;
+  --accent:#3CB98C; --accent-ink:#04170F; --warm:#E0A06A;
+  --sky:#1B2A31; --wall:#DCD8CE; --wall2:#BDB6A6; --wood:#9C7248; --glass:#5E8796; --frame:#0E1412;
+  --t3:#1B3346; --t3s:#86BDEB; --t4:#3A2C17; --t4s:#EDB46C;
+  --green:#1D3224; --tree:#3E7A4B; --tree2:#2E5E39; --road:#2A3330; --walk:#1F2925; --car:#5A6763; --shadow:rgba(0,0,0,.45); --sel:#F472A6; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px}
+.wrap{max-width:560px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:18px 140px;display:flex;flex-direction:column;gap:16px}
+.eyebrow{font:700 11px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+h1{margin:6px 0 2px;font:800 34px/1 var(--display);letter-spacing:-.02em}
+h1 small{display:block;font:700 15px var(--display);letter-spacing:0;color:var(--mute);margin-top:6px}
+.hero{background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.hero svg{display:block;width:100%;height:auto}
+.hero .cap{display:flex;justify-content:space-between;gap:10px;padding:10px 14px;font-size:12.5px;color:var(--mute);border-top:1px solid var(--line)}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.fact{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px 8px;text-align:center}
+.fact b{display:block;font:800 18px var(--display)}
+.fact span{font-size:11.5px;color:var(--mute)}
+.amen{display:flex;flex-wrap:wrap;gap:6px}
+.amen span{font:600 12.5px var(--body);padding:6px 11px;border-radius:999px;background:var(--panel);border:1px solid var(--line)}
+h2.sec{margin:6px 0 0;font:800 19px var(--display)}
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.chip{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:8px 14px;font:600 13px var(--body);cursor:pointer;min-height:40px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip:focus-visible,.btn:focus-visible,.u:focus-visible,.x:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+#q{flex:1;min-width:110px;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:8px 14px;font:500 14px var(--body);min-height:40px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--mute)}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-right:6px;border:1.5px solid}
+.plan{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:8px}
+.plan svg{display:block;width:100%;height:auto}
+.u{cursor:pointer;transition:opacity .2s}
+.u.dim{opacity:.2}
+.u .roof{stroke-width:1.2}
+.u.t3 .roof{fill:var(--t3);stroke:var(--t3s)} .u.t4 .roof{fill:var(--t4);stroke:var(--t4s)}
+.u.on .roof{stroke:var(--sel);stroke-width:3.5}
+.num{font:800 15px var(--display);fill:var(--ink);pointer-events:none}
+.u3{cursor:pointer;transition:opacity .2s}.u3.dim{opacity:.18}
+.u3.t3 .top{fill:var(--t3);stroke:var(--t3s)}.u3.t4 .top{fill:var(--t4);stroke:var(--t4s)}.u3 .top{stroke-width:1}
+.u3.on .top{fill:var(--sel);stroke:var(--sel)}.u3.on .num3{fill:#fff}
+.num3{font:800 17px var(--display);fill:var(--ink);pointer-events:none}
+.lbl{font:700 9px var(--body);letter-spacing:.14em;fill:var(--mute)}
+.rm{font:600 8.5px var(--body);fill:var(--ink)}
+#g3{position:relative}
+#cv{display:block;width:100%;aspect-ratio:4/5;max-height:640px;border-radius:16px;touch-action:none;background:var(--sky)}
+.g3bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:10px 4px 2px}
+.g3bar .hint{font-size:12px;color:var(--mute)}
+.note{font-size:12.5px;color:var(--mute);line-height:1.5;margin:0}
+.sheet{position:fixed;left:0;right:0;bottom:0;max-height:88vh;overflow:auto;background:var(--panel);border-top:1px solid var(--line);border-radius:22px 22px 0 0;box-shadow:0 -14px 44px rgba(0,0,0,.22);padding:14px max(18px,env(safe-area-inset-right,0px)) calc(18px + env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px));transform:translateY(105%);transition:transform .28s cubic-bezier(.2,.8,.2,1);z-index:20}
+.sheet.open{transform:none}
+.sheet .in{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.sh{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.sh h3{margin:0;font:800 24px var(--display)}
+.tag{display:inline-block;margin-top:4px;font:700 12px var(--body);padding:4px 10px;border-radius:999px}
+.tag.t3{background:var(--t3);color:var(--t3s)} .tag.t4{background:var(--t4);color:var(--t4s)}
+.x{border:0;background:var(--bg);color:var(--mute);font-size:24px;line-height:1;cursor:pointer;width:44px;height:44px;border-radius:50%}
+.kvs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.kv{background:var(--bg);border-radius:12px;padding:9px 10px}
+.kv span{display:block;font:700 9.5px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.kv b{font:700 14px var(--display)}
+.ex{background:var(--bg);border-radius:16px;padding:6px}
+.ex svg{display:block;width:100%;height:auto}
+.btn{display:flex;justify-content:center;align-items:center;gap:8px;border-radius:14px;padding:13px;font:700 15px var(--body);text-decoration:none;border:0;cursor:pointer;min-height:48px}
+.btn.p{background:var(--accent);color:var(--accent-ink)}
+@media (max-width:380px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce){.sheet,.u{transition:none}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Complejo · Ituzaingó Norte</span>
+    <h1>Convives<small>Dúplex de 3 y 4 ambientes a estrenar · Manuel Medina 1956</small></h1>
+  </header>
+
+  <figure class="hero" style="margin:0">
+    <svg id="facade" viewBox="0 0 560 260" role="img" aria-label="Fachada ilustrada de un módulo de cuatro dúplex de dos plantas sobre la calle interna"></svg>
+    <figcaption class="cap"><span>Módulo tipo sobre la calle interna</span><span>Ilustración</span></figcaption>
+  </figure>
+
+  <div class="facts">
+    <div class="fact"><b>32</b><span>dúplex</span></div>
+    <div class="fact"><b>2</b><span>plantas</span></div>
+    <div class="fact"><b>3 y 4</b><span>ambientes</span></div>
+    <div class="fact"><b>1</b><span>calle interna</span></div>
+  </div>
+  <div class="amen"><span>A estrenar</span><span>Jardín propio</span><span>Balcón</span><span>Cochera techada</span><span>Bulevar arbolado</span></div>
+
+  <h2 class="sec">Elegí tu unidad</h2>
+  <div class="tools" role="group" aria-label="Filtrar unidades">
+    <button class="chip" aria-pressed="true" data-f="all" id="fa">Todas</button>
+    <button class="chip" aria-pressed="false" data-f="3" id="f3">3 ambientes</button>
+    <button class="chip" aria-pressed="false" data-f="4" id="f4">4 ambientes</button>
+    <input id="q" inputmode="numeric" placeholder="N.º de unidad" aria-label="Buscar unidad por número">
+  </div>
+  <div class="legend"><span><i style="background:var(--t3);border-color:var(--t3s)"></i>3 ambientes</span><span><i style="background:var(--t4);border-color:var(--t4s)"></i>4 ambientes</span></div>
+  <div class="tools" role="group" aria-label="Vista"><button class="chip" aria-pressed="true" data-v="3" id="v3">Maqueta 3D</button><button class="chip" aria-pressed="false" data-v="2" id="v2">Plano</button></div>
+  <div class="plan" id="p3"><div id="g3" hidden><canvas id="cv" aria-label="Maqueta 3D interactiva del conjunto. Arrastrá para girar y tocá una unidad para ver su ficha."></canvas><div class="g3bar"><button class="chip" id="dn" aria-pressed="false">Ver de noche</button><button class="chip" id="rc">Recentrar</button><span class="hint">Arrastrá para girar · pellizcá para acercar</span></div></div><svg id="m3" viewBox="0 0 730 830" role="img" aria-label="Maqueta 3D del conjunto: 32 dúplex de dos plantas a ambos lados de la calle interna, con el acceso abajo"></svg></div>
+  <div class="plan" id="p2" hidden><svg id="map" viewBox="0 0 480 1120" role="img" aria-label="Vista aérea del conjunto: 32 dúplex a ambos lados de la calle interna"></svg></div>
+  <p class="note">Imágenes ilustrativas. Superficies, precios y disponibilidad sujetos a confirmación del desarrollador.</p>
+</div>
+
+<div class="sheet" id="sheet" role="dialog" aria-labelledby="st">
+  <div class="in">
+    <div class="sh"><div><h3 id="st">Unidad</h3><span class="tag" id="stag"></span></div><button class="x" id="sx" aria-label="Cerrar ficha">×</button></div>
+    <div class="kvs" id="skv"></div>
+    <div class="ex"><svg id="expl" viewBox="0 0 370 360" role="img" aria-label="Esquema de las dos plantas del dúplex"></svg></div>
+    <p class="note">Esquema ilustrativo de las plantas. La distribución exacta se agrega con los planos del arquitecto.</p>
+    <a class="btn p" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Coronel%20Manuel%20Medina%201956%2C%20Ituzaing%C3%B3">Cómo llegar · Google Maps</a>
+  </div>
+</div>
+
+<script>
+const NS='http://www.w3.org/2000/svg';
+const el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e};
+const tx=(p,x,y,s,c,a)=>{const t=el('text',Object.assign({x,y,class:c||'rm'},a||{}),p);t.textContent=s;return t};
+
+/* ---------- Fachada del módulo tipo (unidades 1·3·5·7: ancha, angosta, angosta, ancha) ---------- */
+(function(){const f=document.getElementById('facade');
+ el('rect',{x:0,y:0,width:560,height:260,fill:'var(--sky)'},f);
+ el('rect',{x:0,y:222,width:560,height:38,fill:'var(--walk)'},f);
+ el('rect',{x:0,y:236,width:560,height:24,fill:'var(--road)'},f);
+ const mods=[{w:154,wide:1,n:1},{w:110,wide:0,n:3},{w:110,wide:0,n:5},{w:154,wide:1,n:7}];
+ let x=16;const G=222,H1=78,H2=74;
+ mods.forEach(m=>{
+  const top=G-H1-H2;
+  el('rect',{x:x+3,y:top+6,width:m.w,height:H1+H2,fill:'var(--shadow)'},f);
+  el('rect',{x,y:top,width:m.w,height:H1+H2,fill:'var(--wall)',stroke:'var(--frame)','stroke-width':1.2},f);
+  el('rect',{x:x-2,y:top-8,width:m.w+4,height:9,fill:'var(--wall2)',stroke:'var(--frame)','stroke-width':1},f);
+  if(m.wide){
+   el('rect',{x:x+8,y:top+8,width:m.w*0.55,height:H2-14,fill:'var(--wood)'},f);
+   for(let i=1;i<7;i++)el('line',{x1:x+8+i*(m.w*0.55/7),y1:top+8,x2:x+8+i*(m.w*0.55/7),y2:top+H2-6,stroke:'var(--frame)','stroke-opacity':.25},f);
+   el('rect',{x:x+m.w*0.6+6,y:top+12,width:m.w*0.4-16,height:H2-24,fill:'var(--glass)',stroke:'var(--frame)','stroke-width':2},f);
+   el('rect',{x:x+6,y:top+H2+4,width:m.w*0.56,height:H1-4,fill:'var(--frame)',opacity:.85},f);
+   for(let i=1;i<6;i++)el('line',{x1:x+6,y1:top+H2+4+i*(H1-4)/6,x2:x+6+m.w*0.56,y2:top+H2+4+i*(H1-4)/6,stroke:'var(--wall2)','stroke-opacity':.5},f);
+   el('rect',{x:x+m.w*0.64,y:top+H2+18,width:m.w*0.28,height:H1-18,fill:'var(--glass)',stroke:'var(--frame)','stroke-width':2},f);
+  }else{
+   el('rect',{x:x+10,y:top+10,width:m.w-20,height:H2-26,fill:'var(--glass)',stroke:'var(--frame)','stroke-width':2},f);
+   el('line',{x1:x+m.w/2,y1:top+10,x2:x+m.w/2,y2:top+H2-16,stroke:'var(--frame)','stroke-width':2},f);
+   el('rect',{x:x+6,y:top+H2-16,width:m.w-12,height:3,fill:'var(--frame)'},f);
+   for(let i=0;i<9;i++)el('line',{x1:x+10+i*(m.w-20)/8,y1:top+H2-16,x2:x+10+i*(m.w-20)/8,y2:top+H2-4,stroke:'var(--frame)','stroke-width':1.4},f);
+   el('rect',{x:x+12,y:top+H2+14,width:24,height:H1-14,fill:'var(--wood)',stroke:'var(--frame)','stroke-width':1.5},f);
+   el('rect',{x:x+46,y:top+H2+16,width:m.w-58,height:H1-34,fill:'var(--glass)',stroke:'var(--frame)','stroke-width':2},f);
+  }
+  el('line',{x1:x,y1:top+H2,x2:x+m.w,y2:top+H2,stroke:'var(--frame)','stroke-opacity':.35},f);
+  const b=el('g',{},f);el('circle',{cx:x+m.w/2,cy:top+H2/2-28,r:0},b);
+  tx(f,x+m.w/2,top-14,String(m.n),'num',{'text-anchor':'middle','font-size':'13'});
+  x+=m.w+2;
+ });
+ [[8,198,20],[176,200,16],[300,204,14],[540,198,22]].forEach(([cx,cy,r])=>{el('rect',{x:cx-2,y:cy,width:4,height:26,fill:'var(--frame)',opacity:.6},f);el('circle',{cx,cy,r,fill:'var(--tree)'},f);el('circle',{cx:cx+r*.35,cy:cy-r*.3,r:r*.6,fill:'var(--tree2)',opacity:.6},f)});
+ tx(f,16,250,'CALLE INTERNA','lbl');
+})();
+
+/* ---------- Vista aérea con volumen ---------- */
+const B=[167,240,295,340,415,495,545,590,668,745,795,840,918,997,1045,1090,1170];
+const W=1170,Y0=46,svg=document.getElementById('map');
+const L=W-B[0];
+el('rect',{x:0,y:0,width:480,height:1120,fill:'var(--panel)'},svg);
+el('rect',{x:175,y:Y0-8,width:130,height:L+16,fill:'var(--walk)'},svg);
+el('rect',{x:192,y:Y0-8,width:96,height:L+16,fill:'var(--road)'},svg);
+el('rect',{x:228,y:Y0+44,width:24,height:L-88,rx:12,fill:'var(--green)'},svg);
+for(let y=Y0+66;y<Y0+L-50;y+=46){el('circle',{cx:240,cy:y,r:9,fill:'var(--tree)'},svg);el('circle',{cx:243,cy:y-3,r:5,fill:'var(--tree2)',opacity:.6},svg)}
+el('rect',{x:20,y:Y0+L+10,width:440,height:40,rx:10,fill:'var(--walk)'},svg);
+tx(svg,240,Y0+L+35,'ACCESO · CALLE MANUEL MEDINA','lbl',{'text-anchor':'middle'});
+tx(svg,240,Y0-20,'FONDO DEL TERRENO','lbl',{'text-anchor':'middle'});
+const U=[],SH=7;
+for(let i=0;i<16;i++){
+ const a=B[i],b=B[i+1],wide=(b-a)>60,y=Y0+(W-b),h=b-a;
+ [[2*i+1,'L'],[2*i+2,'R']].forEach(([n,side])=>{
+  const g=el('g',{class:'u '+(wide?'t4':'t3'),tabindex:0,role:'button','aria-label':'Unidad '+n+', dúplex de '+(wide?4:3)+' ambientes','data-n':n},svg);
+  const x0=side==='L'?20:305,x1=side==='L'?175:460;
+  // jardín al fondo, casa de dos plantas, frente con cochera
+  const gx0=side==='L'?x0:x1-42; el('rect',{x:gx0+2,y:y+2,width:40,height:h-4,rx:3,fill:'var(--green)'},g);
+  el('circle',{cx:gx0+21,cy:y+h/2,r:Math.min(12,h/2-4),fill:'var(--tree)'},g);
+  el('circle',{cx:gx0+25,cy:y+h/2-3,r:Math.min(7,h/3),fill:'var(--tree2)',opacity:.6},g);
+  const hx=side==='L'?x0+44:x0+30, hw=82;
+  el('rect',{x:hx+SH,y:y+3+SH,width:hw,height:h-6,fill:'var(--shadow)'},g);
+  el('rect',{class:'roof',x:hx,y:y+3,width:hw,height:h-6,rx:2},g);
+  const bx=side==='L'?hx+hw-22:hx+4; el('rect',{x:bx,y:y+7,width:18,height:h-14,fill:'none',stroke:'var(--frame)','stroke-opacity':.25,'stroke-dasharray':'2 2'},g);
+  const fx0=side==='L'?hx+hw+2:x0+2, fw=side==='L'?x1-(hx+hw)-4:hx-x0-4;
+  if(wide){el('rect',{x:fx0,y:y+4,width:fw,height:h-8,rx:2,fill:'var(--wall2)',opacity:.8},g);
+   el('rect',{x:fx0+2,y:y+9,width:fw-4,height:(h-22)/2,rx:4,fill:'var(--car)'},g);}
+  else{el('rect',{x:fx0+fw/2-3,y:y+h/2-8,width:6,height:16,fill:'var(--wall2)'},g)}
+  tx(g,hx+hw/2,y+h/2+5,String(n),'num',{'text-anchor':'middle'});
+  g.addEventListener('click',()=>open(n));
+  g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(n)}});
+  U.push({n,amb:wide?4:3,g});
+ });
+}
+
+/* ---------- Maqueta 3D (axonometría: acceso abajo, calle interna en diagonal) ---------- */
+(function(){const s=document.getElementById('m3');
+ const P=(u,v,z)=>[10+.86*u+.30*v,700+.22*u-.60*v-.9*z].map(n=>n.toFixed(1)).join(',');
+ const poly=(p,pts,a)=>el('polygon',Object.assign({points:pts.map(q=>P(...q)).join(' ')},a),p);
+ const LEN=1003;
+ const ground=el('g',{},s),boxes=[];
+ poly(ground,[[0,-30,0],[480,-30,0],[480,LEN+20,0],[0,LEN+20,0]],{fill:'var(--green)',opacity:.55});
+ poly(ground,[[175,-30,0],[305,-30,0],[305,LEN+8,0],[175,LEN+8,0]],{fill:'var(--walk)'});
+ poly(ground,[[192,-30,0],[288,-30,0],[288,LEN+8,0],[192,LEN+8,0]],{fill:'var(--road)'});
+ poly(ground,[[228,44,0],[252,44,0],[252,LEN-44,0],[228,LEN-44,0]],{fill:'var(--green)'});
+ const box=(g,u0,u1,v0,v1,z0,z1,c)=>{poly(g,[[u0,v0,z0],[u1,v0,z0],[u1,v0,z1],[u0,v0,z1]],{fill:c.f||'var(--wall2)',stroke:'var(--frame)','stroke-width':.6,'stroke-opacity':.5});
+  poly(g,[[u1,v0,z0],[u1,v1,z0],[u1,v1,z1],[u1,v0,z1]],{fill:c.s||'var(--wall)',stroke:'var(--frame)','stroke-width':.6,'stroke-opacity':.5});
+  return poly(g,[[u0,v0,z1],[u1,v0,z1],[u1,v1,z1],[u0,v1,z1]],Object.assign({stroke:'var(--frame)','stroke-width':.6},c.t||{}))};
+ const tree=(u,v,r,h)=>boxes.push({k:.349*u-v+0.1,d:g=>{const b=P(u,v,0).split(','),t=P(u,v,h).split(',');el('line',{x1:b[0],y1:b[1],x2:t[0],y2:t[1],stroke:'var(--frame)','stroke-width':2,opacity:.55},g);el('circle',{cx:t[0],cy:t[1],r,fill:'var(--tree)'},g);el('circle',{cx:+t[0]+r*.3,cy:+t[1]-r*.35,r:r*.55,fill:'var(--tree2)',opacity:.55},g)}});
+ for(let v=66;v<LEN-50;v+=46)tree(240,v,10,26);
+ for(let i=0;i<16;i++){const a=B[i]-167,b=B[i+1]-167,wide=(b-a)>60;
+  [[2*i+1,'L'],[2*i+2,'R']].forEach(([n,side])=>{
+   const hu0=side==='L'?64:334,hu1=hu0+82,gu=side==='L'?[20,62]:[418,460],fu=side==='L'?[148,175]:[305,332];
+   poly(ground,[[gu[0],a+2,0],[gu[1],a+2,0],[gu[1],b-2,0],[gu[0],b-2,0]],{fill:'var(--green)',stroke:'var(--tree2)','stroke-opacity':.3});
+   poly(ground,[[fu[0],a+2,0],[fu[1],a+2,0],[fu[1],b-2,0],[fu[0],b-2,0]],{fill:'var(--wall2)',opacity:.8});
+   tree((gu[0]+gu[1])/2,(a+b)/2,Math.min(11,(b-a)/4),22);
+   const u=U.find(x=>x.n===n);
+   boxes.push({k:.349*(hu0+41)-(a+b)/2,d:G=>{const g=el('g',{class:'u3 '+(wide?'t4':'t3'),'data-n':n,tabindex:0,role:'button','aria-label':'Unidad '+n},G);
+    const top=box(g,hu0,hu1,a+1,b-1,0,72,{t:{class:'top'}});top.setAttribute('class','top');
+    poly(g,[[hu0-1,a+1,72],[hu1+1,a+1,72],[hu1+1,b-1,72],[hu0-1,b-1,72]],{fill:'none',stroke:'var(--frame)','stroke-opacity':.35});
+    [[8,28],[42,64]].forEach(([z0,z1])=>poly(g,[[hu1,a+6,z0],[hu1,b-6,z0],[hu1,b-6,z1],[hu1,a+6,z1]],{fill:'var(--glass)',stroke:'var(--frame)','stroke-width':1}));
+    poly(g,[[hu1,a+4,36],[hu1+8,a+4,36],[hu1+8,b-4,36],[hu1,b-4,36]],{fill:'var(--wall2)',stroke:'var(--frame)','stroke-width':.6});
+    if(wide){poly(g,[[hu0,a+4,0],[hu0,b-4,0],[hu0,b-4,0],[hu0,a+4,0]],{fill:'none'})}
+    const c=P(hu0+41,(a+b)/2,72).split(',');el('text',{x:c[0],y:+c[1]+6,'text-anchor':'middle',class:'num3'},g).textContent=n;
+    g.addEventListener('click',()=>open(n));g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(n)}});
+    if(u)u.g3=g;}});
+   if(wide){const cu=side==='L'?150:307;boxes.push({k:.349*(cu+11)-(a+b)/2+.05,d:g=>{box(g,cu,cu+22,a+8,a+8+(b-a)*0.42,0,12,{f:'var(--car)',s:'var(--car)',t:{fill:'var(--car)'}})}})}
+  });}
+ const bl=el('g',{},s);boxes.sort((x,y)=>x.k-y.k).forEach(o=>o.d(bl));
+ const t1=P(240,-20,0).split(',');el('text',{x:t1[0],y:+t1[1]+26,'text-anchor':'middle',class:'lbl','font-size':'13'},s).textContent='ACCESO · CALLE MANUEL MEDINA';
+})();
+document.querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>{const v=b.dataset.v;document.querySelectorAll('[data-v]').forEach(c=>c.setAttribute('aria-pressed',c===b));document.getElementById('p3').hidden=v!=='3';document.getElementById('p2').hidden=v!=='2'});
+
+/* ---------- Despiece de plantas ---------- */
+function iso(x,y,z){return [175+(x-y)*0.866,200+(x+y)*0.5-z]}
+function plate(p,w,d,z,rooms,fill){
+ const pts=[[0,0],[w,0],[w,d],[0,d]].map(([x,y])=>iso(x,y,z).join(',')).join(' ');
+ el('polygon',{points:[[0,d],[w,d],[w,d]].map(()=>0).length&&[[0,d],[w,d]].map(([x,y])=>iso(x,y,z).join(',')).concat([[w,d],[0,d]].map(([x,y])=>iso(x,y,z-8).join(','))).join(' '),fill:'var(--wall2)'},p);
+ el('polygon',{points:[[w,0],[w,d]].map(([x,y])=>iso(x,y,z).join(',')).concat([[w,d],[w,0]].map(([x,y])=>iso(x,y,z-8).join(','))).join(' '),fill:'var(--wall2)',opacity:.75},p);
+ el('polygon',{points:pts,fill,stroke:'var(--frame)','stroke-width':1.3},p);
+ rooms.forEach(r=>{const q=[[r[0],r[1]],[r[0]+r[2],r[1]],[r[0]+r[2],r[1]+r[3]],[r[0],r[1]+r[3]]].map(([x,y])=>iso(x,y,z).join(',')).join(' ');
+  el('polygon',{points:q,fill:r[5]||'none',stroke:'var(--frame)','stroke-width':.8,'stroke-opacity':.6},p);
+  const c=iso(r[0]+r[2]/2,r[1]+r[3]/2,z);tx(p,c[0],c[1]+3,r[4],'rm',{'text-anchor':'middle'});});
+}
+function drawEx(amb){const s=document.getElementById('expl');s.innerHTML='';
+ const w=amb===4?120:90,d=150;
+ const pa=amb===4?[[0,0,w,46,'Dormitorio'],[0,46,w*0.5,40,'Baño','var(--t3)'],[w*0.5,46,w*0.5,40,'Dormitorio'],[0,86,w,48,'Dormitorio'],[0,134,w,16,'Balcón','var(--green)']]
+                  :[[0,0,w,56,'Dormitorio'],[0,56,w,30,'Baño','var(--t3)'],[0,86,w,48,'Dormitorio'],[0,134,w,16,'Balcón','var(--green)']];
+ const pb=amb===4?[[0,0,w,40,'Jardín','var(--green)'],[0,40,w,52,'Living-comedor'],[0,92,w*0.55,26,'Cocina'],[w*0.55,92,w*0.45,26,'Toilette','var(--t3)'],[0,118,w,32,'Cochera','var(--wall2)']]
+                  :[[0,0,w,40,'Jardín','var(--green)'],[0,40,w,56,'Living-comedor'],[0,96,w,24,'Cocina'],[0,120,w,30,'Acceso','var(--wall2)']];
+ const g=el('g',{},s);
+ plate(g,w,d,0,pb,'var(--wall)');
+ [[0,0],[w,0],[w,d],[0,d]].forEach(([x,y])=>{const a=iso(x,y,0),b=iso(x,y,140);el('line',{x1:a[0],y1:a[1],x2:b[0],y2:b[1],stroke:'var(--frame)','stroke-opacity':.3,'stroke-dasharray':'3 3'},g)});
+ plate(g,w,d,140,pa,'var(--wall)');
+ const l1=iso(w,0,0),l2=iso(w,0,140);
+ tx(s,l1[0]+8,l1[1]+4,'PLANTA BAJA','lbl');tx(s,l2[0]+8,l2[1]+4,'PLANTA ALTA','lbl');
+}
+
+const sheet=document.getElementById('sheet');
+function open(n){const u=U.find(x=>x.n===n);if(!u)return;U.forEach(x=>[x.g,x.g3].forEach(e=>e&&e.classList.toggle('on',x===u)));
+ document.getElementById('st').textContent='Unidad '+n;
+ const t=document.getElementById('stag');t.className='tag t'+u.amb;t.textContent='Dúplex de '+u.amb+' ambientes';
+ document.getElementById('skv').innerHTML=
+  '<div class="kv"><span>Dormitorios</span><b>'+(u.amb===4?3:2)+'</b></div>'+
+  '<div class="kv"><span>Plantas</span><b>2</b></div>'+
+  '<div class="kv"><span>Lado</span><b>'+(n%2?'Impar':'Par')+'</b></div>'+
+  '<div class="kv"><span>Superficie</span><b>A confirmar</b></div>'+
+  '<div class="kv"><span>Precio</span><b>Consultar</b></div>'+
+  '<div class="kv"><span>Estado</span><b>A estrenar</b></div>';
+ drawEx(u.amb);sheet.classList.add('open');}
+document.getElementById('sx').onclick=()=>{sheet.classList.remove('open');U.forEach(x=>[x.g,x.g3].forEach(e=>e&&e.classList.remove('on')))};
+let F='all';
+function apply(){const q=document.getElementById('q').value.trim();U.forEach(u=>{const off=!((F==='all'||String(u.amb)===F)&&(!q||String(u.n)===q));[u.g,u.g3].forEach(e=>e&&e.classList.toggle('dim',off))})}
+document.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{F=b.dataset.f;document.querySelectorAll('[data-f]').forEach(c=>c.setAttribute('aria-pressed',c===b));apply()});
+document.getElementById('q').addEventListener('input',e=>{apply();const n=+e.target.value;if(n>=1&&n<=32)open(n)});
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function(){
+ if(!window.THREE||!THREE.OrbitControls)return;
+ const cv=document.getElementById('cv');let R;
+ try{R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:false})}catch(e){return}
+ document.getElementById('g3').hidden=false;document.getElementById('m3').style.display='none';
+ R.setPixelRatio(Math.min(2,window.devicePixelRatio||1));R.shadowMap.enabled=true;R.shadowMap.type=THREE.PCFSoftShadowMap;
+ R.outputEncoding=THREE.sRGBEncoding;R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=.9;
+ const S=0.11,LEN=1003,X=u=>(u-240)*S,Z=v=>-(v-LEN/2)*S;
+ const sc=new THREE.Scene();const cam=new THREE.PerspectiveCamera(36,1,0.5,600);
+ const ctl=new THREE.OrbitControls(cam,cv);ctl.enableDamping=true;ctl.dampingFactor=.08;ctl.maxPolarAngle=1.32;ctl.minDistance=20;ctl.maxDistance=190;ctl.autoRotate=true;ctl.autoRotateSpeed=.55;
+ const home=()=>{cam.position.set(78,52,112);ctl.target.set(0,2,4);ctl.update()};home();
+ cv.addEventListener('pointerdown',()=>{ctl.autoRotate=false});
+ const hemi=new THREE.HemisphereLight(0xe6f1ff,0x55663f,.75);sc.add(hemi);
+ const sun=new THREE.DirectionalLight(0xfff0d8,1.55);sun.position.set(-45,70,40);sun.castShadow=true;
+ sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-75,right:75,top:75,bottom:-75,near:10,far:220});sun.shadow.bias=-.0006;sc.add(sun);
+ const M=(c,o)=>new THREE.MeshStandardMaterial(Object.assign({color:c,roughness:.85},o||{}));
+ const box=(w,h,d,m,x,y,z,par)=>{const b=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);b.position.set(x,y,z);b.castShadow=b.receiveShadow=true;(par||sc).add(b);return b};
+ const plane=(w,d,m,x,z,y)=>{const p=new THREE.Mesh(new THREE.PlaneGeometry(w,d),m);p.rotation.x=-Math.PI/2;p.position.set(x,y||0,z);p.receiveShadow=true;sc.add(p);return p};
+ // terreno
+ plane(400,400,M(0x7fa06a),0,0,-.02);
+ plane(480*S,(LEN+40)*S,M(0x8fb179),0,0,0);
+ plane(130*S,(LEN+40)*S,M(0xd9d6ce),X(240),Z(LEN/2-20),.01);
+ plane(96*S,(LEN+40)*S,M(0x4a4f52,{roughness:.95}),X(240),Z(LEN/2-20),.02);
+ plane(24*S,(LEN-88)*S,M(0x8fb27a),X(240),Z(LEN/2),.04);
+ box(480*S,.18,.4,M(0x2b3330),0,.09,Z(-34));
+ for(let v=0;v<LEN+30;v+=40){box(.12,.01,2.2,M(0xf3f0e6),X(212),.03,Z(v),);box(.12,.01,2.2,M(0xf3f0e6),X(268),.03,Z(v))}
+ // árboles
+ const trunkM=M(0x6b5139),leafA=M(0x4f8a55),leafB=M(0x6aa36c);
+ const tree=(x,z,r)=>{box(.25,1.8,.25,trunkM,x,.9,z);const l=new THREE.Mesh(new THREE.IcosahedronGeometry(r,1),Math.random()<.5?leafA:leafB);l.position.set(x,1.8+r*.8,z);l.castShadow=true;l.scale.y=1.15;sc.add(l)};
+ for(let v=66;v<LEN-50;v+=46)tree(X(240),Z(v),1.25);
+ const lampM=new THREE.MeshStandardMaterial({color:0xfff1d6,emissive:0xffd08a,emissiveIntensity:0});
+ for(let v=40;v<LEN;v+=92){[X(184),X(296)].forEach(x=>{box(.12,4,.12,M(0x2b3330),x,2,Z(v));const l=box(.5,.18,.5,lampM,x,4.05,Z(v));l.castShadow=false})}
+ // materiales
+ const wallM=M(0xf4f1ea),wall2M=M(0xe2ddd2),woodM=M(0xa8794d,{roughness:.7}),frameM=M(0x262c2a,{roughness:.5}),
+   glassM=new THREE.MeshStandardMaterial({color:0x7fa3b4,roughness:.08,metalness:.35,emissive:0xffc27a,emissiveIntensity:0}),
+   railM=new THREE.MeshStandardMaterial({color:0xbfd6df,roughness:.05,metalness:.1,transparent:true,opacity:.35}),
+   carMs=[0xc9ccce,0x3a4247,0x8c1d24,0x1f3d5c].map(c=>M(c,{roughness:.35,metalness:.5}));
+ const glows=[];const units={};const pick=[];window.__u3=units;
+ for(let i=0;i<16;i++){const a=B[i]-167,b=B[i+1]-167,wide=(b-a)>60,w=(b-a)*S-.12,zc=Z((a+b)/2);
+  [[2*i+1,'L'],[2*i+2,'R']].forEach(([n,side])=>{
+   const g=new THREE.Group();g.userData.n=n;sc.add(g);
+   const dir=side==='L'?1:-1; // +1: fachada a la calle hacia +x
+   const h0=side==='L'?64:334,h1=h0+82,xc=X((h0+h1)/2),dep=82*S,face=side==='L'?X(h1):X(h0);
+   const roofM=M(wide?0xe8dcc5:0xdfe6ea,{roughness:.9});
+   const pb=box(dep,2.9,w,wallM.clone(),xc,1.45,zc,g);
+   const paD=dep+.8;const pa=box(paD,2.9,w,(wide?woodM:wall2M).clone(),xc+dir*.4,4.35,zc,g);
+   const par=box(paD+.2,.35,w+.04,frameM,xc+dir*.4,5.97,zc,g);
+   const roof=box(paD-.4,.06,w-.4,roofM,xc+dir*.4,6.18,zc,g);
+   // vidrios fachada calle
+   const gw=wide?w*.42:w*.62;
+   const gp=box(.08,2.1,gw,glassM.clone(),face+dir*.05,1.25,zc+(wide?w*.22:0),g);glows.push(gp);
+   const ga=box(.08,2.0,w*.7,glassM.clone(),face+dir*.85,4.3,zc,g);glows.push(ga);
+   box(.1,2.2,.1,frameM,face+dir*.86,4.3,zc,g);
+   // balcón
+   box(1.3,.14,w-.3,wall2M,face+dir*1.45,2.95,zc,g);
+   box(.04,1,w-.3,railM,face+dir*2.08,3.5,zc,g);
+   // portón cochera o puerta
+   if(wide){box(.06,2.3,w*.46,frameM,face+dir*.04,1.15,zc-w*.24,g);
+     const cm=carMs[(n*7)%4];const cx=X(side==='L'?161:318);const car=box(2.0,.8,1.55*1.6>w*.5?w*.42:1.6,cm,cx,.55,zc-w*.24);box(1.2,.55,1.3,cm,cx-.1,1.2,zc-w*.24);}
+   else box(.06,2.2,1,woodM,face+dir*.04,1.1,zc-w*.3,g);
+   // jardín
+   tree(X(side==='L'?40:440),zc,1.0+Math.random()*.4);
+   const lb=label(n);lb.position.set(xc+dir*.4,7.6,zc);g.add(lb);
+   units[n]={g,mats:[pb.material,pa.material],roof,lb,base:[pb.material.color.getHex(),pa.material.color.getHex()]};
+   g.traverse(o=>{if(o.isMesh)pick.push(o)});
+  });}
+ function label(n){const c=document.createElement('canvas');c.width=128;c.height=128;const x=c.getContext('2d');
+  x.fillStyle='rgba(22,34,29,.82)';x.beginPath();x.arc(64,64,52,0,7);x.fill();x.fillStyle='#fff';x.font='800 58px Manrope, Inter, sans-serif';x.textAlign='center';x.textBaseline='middle';x.fillText(n,64,68);
+  const t=new THREE.CanvasTexture(c);t.encoding=THREE.sRGBEncoding;const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:t,depthTest:false}));sp.scale.set(2.3,2.3,1);sp.renderOrder=5;return sp}
+ // selección y filtros
+ let selN=null;const ACC=0xd6336c;
+ function paint(){Object.entries(units).forEach(([n,u])=>{const on=+n===selN;u.mats[0].color.setHex(on?0xf6d2df:u.base[0]);u.mats[1].emissive=new THREE.Color(on?ACC:0x000000);u.mats[1].emissiveIntensity=on?.35:0;u.lb.material.color.setHex(on?ACC:0xffffff);u.lb.scale.set(on?3.2:2.3,on?3.2:2.3,1)})}
+ const oOpen=open;open=function(n){oOpen(n);selN=n;paint()};
+ document.getElementById('sx').addEventListener('click',()=>{selN=null;paint()});
+ const oApply=apply;apply=function(){oApply();Object.entries(units).forEach(([n,u])=>{const uu=U.find(x=>x.n===+n);const dim=uu&&uu.g.classList.contains('dim');u.g.visible=!dim;u.lb.visible=!dim})};
+ // toques
+ const ray=new THREE.Raycaster(),pt=new THREE.Vector2();let down=null;
+ cv.addEventListener('pointerdown',e=>{down=[e.clientX,e.clientY]});
+ cv.addEventListener('pointerup',e=>{if(!down||Math.hypot(e.clientX-down[0],e.clientY-down[1])>6)return;const r=cv.getBoundingClientRect();pt.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);ray.setFromCamera(pt,cam);const hit=ray.intersectObjects(pick,false).find(h=>h.object.visible);if(!hit)return;let o=hit.object;while(o&&o.userData.n===undefined)o=o.parent;if(o&&o.visible)open(o.userData.n)});
+ // día / noche
+ let night=false;const dn=document.getElementById('dn');
+ function setNight(v){night=v;dn.setAttribute('aria-pressed',v);dn.textContent=v?'Ver de día':'Ver de noche';
+  sc.background=new THREE.Color(v?0x060a12:0xb9d4e6);sc.fog=new THREE.Fog(v?0x060a12:0xb9d4e6,v?150:280,v?360:650);
+  hemi.intensity=v?.07:.45;sun.intensity=v?.06:1.3;sun.color.setHex(v?0x7f96c8:0xfff0d8);R.toneMappingExposure=v?1.1:.9;lampM.emissiveIntensity=v?2.2:0;
+  glows.forEach((g,i)=>{g.material.emissiveIntensity=v?(i%5===3?.1:1.6):0})}
+ dn.onclick=()=>setNight(!night);document.getElementById('rc').onclick=()=>{home();ctl.autoRotate=false};
+ setNight(matchMedia('(prefers-color-scheme: dark)').matches&&document.documentElement.getAttribute('data-theme')!=='light'||document.documentElement.getAttribute('data-theme')==='dark');
+ function size(){const w=cv.clientWidth,h=cv.clientHeight;if(!w||!h)return;R.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}
+ new ResizeObserver(size).observe(cv);size();
+ (function loop(){requestAnimationFrame(loop);if(document.hidden||!cv.offsetParent)return;ctl.update();R.render(sc,cam)})();
+})();
+</script>
+
+<script>
+/* NEXOS · Convives en vivo: estados, precios, vendedores y panel (sesión del panel de Las Rosas) */
+(function(){
+const API='https://nexos-mapas.diegoperezmartinez85.workers.dev',BID='convives';
+const $=id=>document.getElementById(id);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let D={st:{},pr:{},sup:{},tp:{},lv:{},vt:{}},V=[],WA='',TOK=null,MODE=null,ONLY=false;
+const qs=new URLSearchParams(location.search);
+function tok(){try{const t=JSON.parse(localStorage.getItem('lrs_tok')||'null');if(t&&t.exp>Date.now()+60e3)return t.token}catch(e){}return null}
+TOK=tok();const ADM=qs.has('panel')&&!!TOK;
+const ST={d:{t:'Disponible',f:'#C9EBD3',s:'#15803D',h:0x8fd3a4},r:{t:'Reservada',f:'#F9E1B5',s:'#B45309',h:0xf2c26b},v:{t:'Vendida',f:'#DADDE0',s:'#6B7280',h:0x9aa1a8}};
+const ambOf=u=>D.tp[u.n]||u.base;
+U.forEach(u=>{u.base=u.amb});
+
+/* ---------- estilos extra ---------- */
+const css=document.createElement('style');css.textContent=`
+.abar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--ink);color:var(--bg);border-radius:16px;padding:10px 12px}
+.abar b{font:800 14px var(--display);margin-right:auto}.abar small{opacity:.75;font-size:12px}
+.abar button{border:0;border-radius:999px;padding:8px 12px;font:700 12.5px var(--body);cursor:pointer;background:var(--bg);color:var(--ink);min-height:36px}
+.apnl{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:10px}
+.apnl label{display:flex;flex-direction:column;gap:5px;font:700 12px var(--body);color:var(--mute)}
+.apnl select,.apnl input,.adm select,.adm input{height:42px;border-radius:11px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:600 14px var(--body);padding:0 10px}
+.adm{border:2px dashed var(--accent);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:10px}
+.adm h4{margin:0;font:800 14px var(--display);color:var(--accent)}
+.adm .sts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.adm .sts button{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;min-height:40px;font:700 12px var(--body);cursor:pointer}
+.adm .sts button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.adm .row2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.adm label{display:flex;flex-direction:column;gap:5px;font:700 11.5px var(--body);color:var(--mute)}
+.wab{background:#1FA855;color:#fff}
+.stx{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:40;display:flex;align-items:flex-end;justify-content:center}
+.stx .in2{background:var(--panel);color:var(--ink);width:100%;max-width:560px;max-height:85vh;overflow:auto;border-radius:20px 20px 0 0;padding:16px max(18px,env(safe-area-inset-right,0px)) calc(18px + env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:10px}
+.stx table{width:100%;border-collapse:collapse;font-size:13.5px}.stx td{padding:6px 4px;border-bottom:1px solid var(--line)}.stx td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.vpk{display:flex;flex-direction:column;gap:8px}
+`;document.head.appendChild(css);
+
+/* ---------- barra y controles ---------- */
+const wrap=document.querySelector('.wrap');
+const tools=document.querySelector('[aria-label="Filtrar unidades"]');
+const only=document.createElement('button');only.className='chip';only.id='fdisp';only.setAttribute('aria-pressed','false');only.textContent='Solo disponibles';tools.insertBefore(only,$('q'));
+only.onclick=()=>{ONLY=!ONLY;only.setAttribute('aria-pressed',ONLY);apply()};
+const leg=document.querySelector('.legend');
+const modeBar=document.createElement('div');modeBar.className='tools';modeBar.setAttribute('role','group');modeBar.setAttribute('aria-label','Colorear por');
+modeBar.innerHTML='<button class="chip" data-m="est" id="m-est">Disponibilidad</button><button class="chip" data-m="tip" id="m-tip">Tipología</button>';
+leg.parentNode.insertBefore(modeBar,leg);
+modeBar.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{MODE=b.dataset.m;paintAll()});
+if(qs.has('panel')&&!TOK){const w=document.createElement('div');w.className='apnl';w.innerHTML='<b>Para editar Convives entrá desde el panel de Las Rosas.</b><a class="btn p" href="/panel/">Ir al panel</a>';wrap.insertBefore(w,wrap.firstChild)}
+if(ADM){
+ const ab=document.createElement('div');ab.className='abar';
+ ab.innerHTML='<b>Panel · Convives</b><small id="cst">Listo</small><button id="cvt">Vendedores</button><button id="cstats">Estadísticas</button><button id="cback">← Las Rosas</button>';
+ wrap.insertBefore(ab,wrap.firstChild);
+ const vp=document.createElement('div');vp.className='apnl';vp.hidden=true;vp.id='vtp';ab.after(vp);
+ $('cvt').onclick=()=>{vp.hidden=!vp.hidden;if(!vp.hidden)vtRender()};
+ $('cback').onclick=()=>{location.href='/panel/'};
+ $('cstats').onclick=stats;
+}
+function vOpts(sel,blank){return '<option value="">'+blank+'</option>'+V.map(v=>'<option value="'+esc(v.id)+'"'+(v.id===sel?' selected':'')+'>'+esc(v.n)+'</option>').join('')}
+function vtRender(){const vp=$('vtp');vp.innerHTML='<b style="font:800 14px var(--display)">Vendedor por tipología</b>'+
+ (V.length?'':'<small style="color:var(--mute)">Todavía no hay vendedores: cargalos en el panel de Las Rosas, botón "Vendedores". Son los mismos para los dos proyectos.</small>')+
+ '<label>Dúplex de 3 ambientes<select id="vt3">'+vOpts(D.vt[3],'Todos los vendedores')+'</select></label>'+
+ '<label>Dúplex de 4 ambientes<select id="vt4">'+vOpts(D.vt[4],'Todos los vendedores')+'</select></label>'+
+ '<small style="color:var(--mute)">Si a una unidad le asignás un vendedor en su ficha, tiene prioridad.</small>';
+ ['3','4'].forEach(k=>$('vt'+k).onchange=e=>{if(e.target.value)D.vt[k]=e.target.value;else delete D.vt[k];save('Vendedor de '+k+' ambientes')})}
+
+/* ---------- pintado ---------- */
+const hasSt=()=>Object.keys(D.st).length>0;
+function paintAll(){const m=MODE||(hasSt()?'est':'tip');
+ modeBar.querySelectorAll('[data-m]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.m===m));
+ leg.innerHTML=m==='est'?Object.values(ST).map(x=>'<span><i style="background:'+x.f+';border-color:'+x.s+'"></i>'+x.t+'</span>').join('')+'<span><i style="background:var(--panel);border-color:var(--line)"></i>Sin dato</span>'
+  :'<span><i style="background:var(--t3);border-color:var(--t3s)"></i>3 ambientes</span><span><i style="background:var(--t4);border-color:var(--t4s)"></i>4 ambientes</span>';
+ U.forEach(u=>{const a=ambOf(u);u.amb=a;const st=D.st[u.n],c=m==='est'&&st?ST[st]:null;
+  const t=a===4?'t4':'t3';[u.g,u.g3].forEach(g=>{if(!g)return;g.classList.remove('t3','t4');g.classList.add(t);const r=g.querySelector('.roof,.top');if(r){r.style.fill=c?c.f:(m==='est'?'var(--panel)':'');r.style.stroke=c?c.s:''}});
+  const u3=window.__u3&&window.__u3[u.n];if(u3&&u3.roof){u3.roof.material.color.setHex(c?c.h:(m==='est'?0xeeeeee:(a===4?0xe8dcc5:0xdfe6ea)))}});
+ const f=document.querySelectorAll('.fact');if(f[3]){const nd=U.filter(u=>D.st[u.n]==='d').length;f[3].innerHTML=hasSt()?'<b>'+nd+'</b><span>disponibles</span>':'<b>1</b><span>calle interna</span>'}
+ apply();}
+const oApply=apply;apply=function(){oApply();if(ONLY)U.forEach(u=>{if(D.st[u.n]!=='d')[u.g,u.g3].forEach(e=>e&&e.classList.add('dim'))});
+ const u3=window.__u3;if(u3)U.forEach(u=>{const x=u3[u.n];if(x){const dim=u.g.classList.contains('dim');x.g.visible=!dim;x.lb.visible=!dim}})};
+
+/* ---------- ficha ---------- */
+const sheetIn=document.querySelector('#sheet .in');const goBtn=sheetIn.querySelector('a.btn.p');
+const wbox=document.createElement('div');wbox.id='cwa';wbox.className='vpk';goBtn.before(wbox);
+const abox=document.createElement('div');abox.id='cadm';if(ADM)sheetIn.insertBefore(abox,sheetIn.children[1]);
+function vendsFor(u){if(D.lv[u.n]){const v=V.find(x=>x.id===D.lv[u.n]);if(v)return[v]}const t=D.vt[u.amb];if(t){const v=V.find(x=>x.id===t);if(v)return[v]}return V.slice()}
+const waLink=(t,u)=>'https://wa.me/'+String(t).replace(/\D/g,'')+'?text='+encodeURIComponent('Hola, quería consultar por la unidad '+u.n+' de Convives (dúplex de '+u.amb+' ambientes).');
+let cur=null;const oOpen=open;
+open=function(n){const u=U.find(x=>x.n===n);if(!u)return;u.amb=ambOf(u);oOpen(n);cur=u;SEL[n]=(SEL[n]||0)+1;
+ const st=D.st[n];const kv=$('skv');
+ const put=(lab,val)=>{const el=[...kv.querySelectorAll('.kv')].find(k=>k.querySelector('span').textContent===lab);if(el)el.querySelector('b').textContent=val};
+ put('Superficie',D.sup[n]||'A confirmar');
+ put('Precio',st==='v'?'Vendida':(D.pr[n]&&st!=='r'?D.pr[n]:'Consultar'));
+ put('Estado',st?ST[st].t:'A estrenar');
+ const vs=st==='v'?[]:vendsFor(u).filter(v=>v.t),wa=WA&&!vs.length&&st!=='v'?[{n:'Ventas',t:WA}]:vs;
+ wbox.innerHTML=st==='v'?'<p class="note">Esta unidad ya fue vendida. Mirá las disponibles con el filtro "Solo disponibles".</p>':
+  wa.length===1?'<a class="btn wab" data-wa="1" target="_blank" rel="noopener" href="'+waLink(wa[0].t,u)+'">Consultar a '+esc(wa[0].n)+' por WhatsApp</a>':
+  wa.length>1?'<p class="note" style="font-weight:700;color:var(--ink)">Consultá por esta unidad:</p>'+wa.map(v=>'<a class="btn wab" data-wa="1" target="_blank" rel="noopener" href="'+waLink(v.t,u)+'">'+esc(v.n)+' · WhatsApp</a>').join(''):'';
+ wbox.querySelectorAll('[data-wa]').forEach(a=>a.addEventListener('click',()=>{WAC[n]=(WAC[n]||0)+1}));
+ if(ADM)admRender(u);}
+function admRender(u){const n=u.n,st=D.st[n]||'';
+ abox.className='adm';abox.innerHTML='<h4>Editar unidad '+n+'</h4><div class="sts">'+[['d','Disponible'],['r','Reservada'],['v','Vendida'],['','Sin dato']].map(([k,t])=>'<button data-s="'+k+'" aria-pressed="'+(st===k)+'">'+t+'</button>').join('')+'</div>'+
+ '<div class="row2"><label>Tipología<select id="ctp"><option value="3"'+(u.amb===3?' selected':'')+'>3 ambientes</option><option value="4"'+(u.amb===4?' selected':'')+'>4 ambientes</option></select></label>'+
+ '<label>Vendedor<select id="clv">'+vOpts(D.lv[n],'Automático')+'</select></label></div>'+
+ '<div class="row2"><label>Precio<input id="cpr" maxlength="30" placeholder="USD 143.000" value="'+esc(D.pr[n]||'')+'"></label>'+
+ '<label>Superficie<input id="csu" maxlength="30" placeholder="120 m²" value="'+esc(D.sup[n]||'')+'"></label></div>';
+ abox.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{const k=b.dataset.s;if(k)D.st[n]=k;else delete D.st[n];save('Unidad '+n+': '+(k?ST[k].t:'sin dato'));paintAll();open(n)});
+ $('ctp').onchange=e=>{const v=+e.target.value;if(v===u.base)delete D.tp[n];else D.tp[n]=v;save('Unidad '+n+': '+v+' ambientes');paintAll();open(n)};
+ $('clv').onchange=e=>{if(e.target.value)D.lv[n]=e.target.value;else delete D.lv[n];save('Unidad '+n+': vendedor');open(n)};
+ [['cpr','pr','precio'],['csu','sup','superficie']].forEach(([id,k,l])=>{const i=$(id);i.onchange=()=>{const v=i.value.trim();if(v)D[k][n]=v;else delete D[k][n];save('Unidad '+n+': '+l);open(n)};i.onkeydown=e=>{if(e.key==='Enter')i.blur()}});}
+
+/* ---------- guardar ---------- */
+let svT=null;function save(msg){const s=$('cst');if(s)s.textContent='Guardando…';clearTimeout(svT);svT=setTimeout(async()=>{
+ try{const r=await fetch(API+'/save?b='+BID,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+TOK},body:JSON.stringify(D)});
+  if(r.status===401){if(s)s.textContent='Sesión vencida: volvé a entrar desde Las Rosas';return}
+  if(!r.ok)throw 0;D=Object.assign(D,await r.json());if(s)s.textContent='Guardado · '+msg}catch(e){if(s)s.textContent='No se pudo guardar. Revisá la conexión.'}},500)}
+
+/* ---------- estadísticas ---------- */
+async function stats(){const m=document.createElement('div');m.className='stx';m.innerHTML='<div class="in2"><div class="sh"><h3 style="margin:0;font:800 20px var(--display)">Estadísticas · últimos 14 días</h3><button class="x" aria-label="Cerrar">×</button></div><p class="note">Cargando…</p></div>';
+ document.body.appendChild(m);m.querySelector('.x').onclick=()=>m.remove();m.onclick=e=>{if(e.target===m)m.remove()};
+ try{const r=await fetch(API+'/stats?b='+BID+'&days=14',{headers:{'Authorization':'Bearer '+TOK}});if(!r.ok)throw 0;const rows=await r.json();
+  let v=0;const sel={},wa={};rows.forEach(x=>{if(!x.d)return;v+=x.d.v||0;for(const k in x.d.sel||{})sel[k]=(sel[k]||0)+x.d.sel[k];for(const k in x.d.wa||{})wa[k]=(wa[k]||0)+x.d.wa[k]});
+  const top=Object.entries(sel).sort((a,b)=>b[1]-a[1]).slice(0,8),tw=Object.values(wa).reduce((a,b)=>a+b,0);
+  m.querySelector('.note').outerHTML='<div class="facts" style="grid-template-columns:repeat(2,minmax(0,1fr))"><div class="fact"><b>'+v+'</b><span>visitas</span></div><div class="fact"><b>'+tw+'</b><span>consultas por WhatsApp</span></div></div>'+
+   '<b style="font:800 14px var(--display)">Unidades más vistas</b>'+(top.length?'<table>'+top.map(([k,c])=>'<tr><td>Unidad '+esc(k)+'</td><td>'+c+' veces</td></tr>').join('')+'</table>':'<p class="note">Todavía no hay datos: aparecen a medida que la gente abre el mapa.</p>');
+ }catch(e){m.querySelector('.note').textContent='No se pudieron cargar las estadísticas.'}}
+
+/* ---------- visitas (anónimas, un envío por visita) ---------- */
+const SEL={},WAC={};let sent=false;
+function flush(){if(ADM)return;const first=!sent;const body={v:first?1:0,h:new Date().getHours(),sel:SEL,wa:WAC};
+ if(!first&&!Object.keys(SEL).length&&!Object.keys(WAC).length)return;
+ try{navigator.sendBeacon(API+'/ev?b='+BID,JSON.stringify(body))}catch(e){}sent=true;for(const k in SEL)delete SEL[k];for(const k in WAC)delete WAC[k]}
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')flush()});
+setInterval(flush,600000);
+
+/* ---------- carga ---------- */
+async function load(){try{const [c,l]=await Promise.all([fetch(API+'/data?b='+BID).then(r=>r.json()),fetch(API+'/data?b=lasrosas').then(r=>r.json())]);
+ D=Object.assign({st:{},pr:{},sup:{},tp:{},lv:{},vt:{}},c||{});V=(l&&l.vend)||[];WA=(l&&l.wa)||'';}catch(e){}
+ paintAll();if(cur)open(cur.n)}
+paintAll();load();
+})();
+
+</script>
+</body>
+</html>
