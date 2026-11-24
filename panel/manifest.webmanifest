@@ -1,7 +1,7 @@
 {
- "name": "Panel Las Rosas",
- "short_name": "Panel Rosas",
- "description": "Lotes disponibles y novedades de Las Rosas",
+ "name": "Panel MH Desarrollos",
+ "short_name": "Panel MH",
+ "description": "Panel de Las Rosas y Convives",
  "id": "/panel/",
  "start_url": "/panel/",
  "scope": "/panel/",
