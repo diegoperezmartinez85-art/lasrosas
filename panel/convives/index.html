@@ -97,6 +97,7 @@ h2.sec{margin:6px 0 0;font:800 19px var(--display)}
 .btn.p{background:var(--accent);color:var(--accent-ink)}
 @media (max-width:380px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (prefers-reduced-motion:reduce){.sheet,.u{transition:none}}
+.hero .rnd{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
 </style>
 
 </head>
@@ -108,8 +109,10 @@ h2.sec{margin:6px 0 0;font:800 19px var(--display)}
   </header>
 
   <figure class="hero" style="margin:0">
+    <img class="rnd" src="/convives/img/render.webp" srcset="/convives/img/render_900.webp 900w, /convives/img/render.webp 1600w" sizes="(max-width:700px) 100vw, 700px" width="1600" height="900" alt="Render del complejo Convives: dúplex blancos con terrazas y la entrada con el cartel CONVIVES"><div hidden>
     <svg id="facade" viewBox="0 0 560 260" role="img" aria-label="Fachada ilustrada de un módulo de cuatro dúplex de dos plantas sobre la calle interna"></svg>
-    <figcaption class="cap"><span>Módulo tipo sobre la calle interna</span><span>Ilustración</span></figcaption>
+    </div>
+    <figcaption class="cap"><span>Render del proyecto</span><span>Imagen ilustrativa</span></figcaption>
   </figure>
 
   <div class="facts">
@@ -139,7 +142,7 @@ h2.sec{margin:6px 0 0;font:800 19px var(--display)}
     <div class="sh"><div><h3 id="st">Unidad</h3><span class="tag" id="stag"></span></div><button class="x" id="sx" aria-label="Cerrar ficha">×</button></div>
     <div class="kvs" id="skv"></div>
     <div class="ex"><svg id="expl" viewBox="0 0 370 360" role="img" aria-label="Esquema de las dos plantas del dúplex"></svg></div>
-    <p class="note">Esquema ilustrativo de las plantas. La distribución exacta se agrega con los planos del arquitecto.</p>
+    <p class="note">Plano de planta baja y planta alta de MH Desarrollos. Medidas y terminaciones sujetas a confirmación del desarrollador.</p>
     <a class="btn p" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Coronel%20Manuel%20Medina%201956%2C%20Ituzaing%C3%B3">Cómo llegar · Google Maps</a>
   </div>
 </div>
@@ -412,6 +415,8 @@ function tok(){try{const t=JSON.parse(localStorage.getItem('lrs_tok')||'null');i
 const INP=location.pathname.startsWith('/panel/');TOK=tok();const ADM=(qs.has('panel')||INP)&&!!TOK;
 const ST={d:{t:'Disponible',f:'#C9EBD3',s:'#15803D',h:0x8fd3a4},r:{t:'Reservada',f:'#F9E1B5',s:'#B45309',h:0xf2c26b},v:{t:'Vendida',f:'#DADDE0',s:'#6B7280',h:0x9aa1a8}};
 const ambOf=u=>D.tp[u.n]||u.base;
+const DEF={3:{sup:'125 m²',pr:'USD 149.500'},4:{sup:'144 m²',pr:'USD 169.000'}};
+const PLANO={3:'/convives/img/plano_3amb.webp',4:'/convives/img/plano_4amb.webp'};
 U.forEach(u=>{u.base=u.amb});
 
 /* ---------- estilos extra ---------- */
@@ -435,6 +440,8 @@ const css=document.createElement('style');css.textContent=`
 .stx .in2{background:var(--panel);color:var(--ink);width:100%;max-width:560px;max-height:85vh;overflow:auto;border-radius:20px 20px 0 0;padding:16px max(18px,env(safe-area-inset-right,0px)) calc(18px + env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:10px}
 .stx table{width:100%;border-collapse:collapse;font-size:13.5px}.stx td{padding:6px 4px;border-bottom:1px solid var(--line)}.stx td:last-child{text-align:right;font-variant-numeric:tabular-nums}
 .vpk{display:flex;flex-direction:column;gap:8px}
+.cplano{margin:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;cursor:zoom-in}.cplano img{display:block;width:100%;height:auto}.cplano figcaption{padding:8px 12px;font:600 12.5px var(--body);color:#56645D;border-top:1px solid #D6DDD8;background:#fff}
+.cplb{position:fixed;inset:0;z-index:60;background:rgba(10,12,11,.92)}.cplb .sc{position:absolute;inset:0;overflow:auto;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y pinch-zoom;display:flex;align-items:center}.cplb .sc img{width:200%;max-width:none;height:auto;background:#fff}@media(min-width:900px){.cplb .sc img{width:100%}}.cplb .x{position:absolute;top:calc(env(safe-area-inset-top,0px) + 12px);right:12px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:#111;font:700 24px/1 sans-serif;cursor:pointer}
 .cvbrand{display:flex;align-items:center;gap:10px;padding:4px 2px}
 .cvbrand .pk{flex:none;line-height:0;border-radius:50%;opacity:.75;transition:opacity .2s}.cvbrand .pk img{width:48px;height:48px;border-radius:50%;box-shadow:0 4px 12px rgba(0,0,0,.25)}
 .cvbrand .pk.on{opacity:1}.cvbrand .pk.on img{box-shadow:0 0 0 2px rgba(34,211,238,.85),0 0 14px rgba(34,211,238,.45)}
@@ -469,13 +476,13 @@ if(ADM){
  br.innerHTML='<a class="pk" href="/panel/" aria-label="Panel de Las Rosas"><img src="'+LRB+'" alt="Barrio Las Rosas"></a><a class="pk on" aria-current="page" aria-label="Panel de Convives"><img src="'+CVB+'" alt="Complejo Convives"></a><div class="bt"><b>Convives</b><small>Panel · tocá una unidad para editarla</small></div>';
  wrap.insertBefore(br,wrap.firstChild);
  const ab=document.createElement('div');ab.className='cvbar';
- ab.innerHTML='<div class="ab1"><b>Panel</b><span id="abc">0 disponibles</span><em id="cst"></em></div><div class="ab2"><button id="cpr">Precios</button><button id="cls">Pegar lista</button><button id="cstats">Estadísticas</button><button id="cvt">Vendedores</button><button id="cx">Salir</button></div>';
+ ab.innerHTML='<div class="ab1"><b>Panel</b><span id="abc">0 disponibles</span><em id="cst"></em></div><div class="ab2"><button id="cprs">Precios</button><button id="cls">Pegar lista</button><button id="cstats">Estadísticas</button><button id="cvt">Vendedores</button><button id="cx">Salir</button></div>';
  document.body.appendChild(ab);
  $('cvt').onclick=()=>{const b=sheet('Vendedores');b.id='vtp';vtRender()};
  $('cstats').onclick=stats;
  $('cx').onclick=()=>{try{localStorage.removeItem('lrs_tok')}catch(e){}location.href='/panel/'};
- $('cpr').onclick=()=>{const b=sheet('Precios y superficies');
-  b.innerHTML='<small style="color:var(--mute)">Se guardan solos. Dejá vacío para que diga "Consultar" o "A confirmar".</small>'+U.slice().sort((a,c)=>a.n-c.n).map(u=>'<div class="prw"><span><b>Unidad '+u.n+'</b><small>'+ambOf(u)+' amb · '+(ST[D.st[u.n]]?ST[D.st[u.n]].t:'Sin dato')+'</small></span><input data-k="pr" data-n="'+u.n+'" placeholder="Precio" maxlength="30" value="'+esc(D.pr[u.n]||'')+'"><input data-k="sup" data-n="'+u.n+'" placeholder="m²" maxlength="30" value="'+esc(D.sup[u.n]||'')+'"></div>').join('');
+ $('cprs').onclick=()=>{const b=sheet('Precios y superficies');
+  b.innerHTML='<small style="color:var(--mute)">Se guardan solos. Si dejás vacío, se usa el valor de su tipología: 3 ambientes 125 m² · USD 149.500; 4 ambientes 144 m² · USD 169.000.</small>'+U.slice().sort((a,c)=>a.n-c.n).map(u=>'<div class="prw"><span><b>Unidad '+u.n+'</b><small>'+ambOf(u)+' amb · '+(ST[D.st[u.n]]?ST[D.st[u.n]].t:'Sin dato')+'</small></span><input data-k="pr" data-n="'+u.n+'" placeholder="'+DEF[ambOf(u)].pr+'" maxlength="30" value="'+esc(D.pr[u.n]||'')+'"><input data-k="sup" data-n="'+u.n+'" placeholder="'+DEF[ambOf(u)].sup+'" maxlength="30" value="'+esc(D.sup[u.n]||'')+'"></div>').join('');
   b.querySelectorAll('input').forEach(x=>x.onchange=()=>{const k=x.dataset.k,n=x.dataset.n,v=x.value.trim().slice(0,30);if(v)D[k][n]=v;else delete D[k][n];save((k==='pr'?'Precio':'Superficie')+' unidad '+n);if(cur&&String(cur.n)===n)open(cur.n)})};
  $('cls').onclick=()=>{const b=sheet('Pegar lista de disponibles');const cur0=U.filter(u=>D.st[u.n]==='d').map(u=>u.n).sort((a,c)=>a-c).join(', ');
   b.innerHTML='<small style="color:var(--mute)">Pegá los números de las unidades disponibles (del 1 al 32), separados por coma o espacio. Las que no estén en la lista dejan de figurar como disponibles. Reservadas y vendidas no cambian, salvo que las incluyas.</small><textarea id="lsx" rows="4" style="border-radius:11px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:600 15px var(--body);padding:10px">'+cur0+'</textarea><small id="lsm" style="color:var(--mute)"></small><button class="btn p" id="lsg">Aplicar lista</button>';
@@ -523,12 +530,15 @@ const wbox=document.createElement('div');wbox.id='cwa';wbox.className='vpk';goBt
 const abox=document.createElement('div');abox.id='cadm';if(ADM)sheetIn.insertBefore(abox,sheetIn.children[1]);
 function vendsFor(u){if(D.lv[u.n]){const v=V.find(x=>x.id===D.lv[u.n]);if(v)return[v]}const t=D.vt[u.amb];if(t){const v=V.find(x=>x.id===t);if(v)return[v]}return V.slice()}
 const waLink=(t,u)=>'https://wa.me/'+String(t).replace(/\D/g,'')+'?text='+encodeURIComponent('Hola, quería consultar por la unidad '+u.n+' de Convives (dúplex de '+u.amb+' ambientes).');
+{const ex=document.querySelector('#sheet .ex');if(ex){ex.style.display='none';const f=document.createElement('figure');f.id='cplano';f.className='cplano';f.innerHTML='<img alt="Plano de planta baja y planta alta" loading="lazy"><figcaption></figcaption>';ex.after(f);
+ f.onclick=()=>{const m=document.createElement('div');m.className='cplb';m.innerHTML='<button class="x" aria-label="Cerrar">×</button><div class="sc"><img alt="Plano ampliado" src="'+f.querySelector('img').src+'"></div>';document.body.appendChild(m);m.querySelector('.x').onclick=()=>m.remove()}}}
 let cur=null;const oOpen=open;
 open=function(n){const u=U.find(x=>x.n===n);if(!u)return;u.amb=ambOf(u);oOpen(n);cur=u;SEL[n]=(SEL[n]||0)+1;
  const st=D.st[n];const kv=$('skv');
  const put=(lab,val)=>{const el=[...kv.querySelectorAll('.kv')].find(k=>k.querySelector('span').textContent===lab);if(el)el.querySelector('b').textContent=val};
- put('Superficie',D.sup[n]||'A confirmar');
- put('Precio',st==='v'?'Vendida':(D.pr[n]&&st!=='r'?D.pr[n]:'Consultar'));
+ put('Superficie',D.sup[n]||DEF[u.amb].sup);
+ put('Precio',st==='v'?'Vendida':(st!=='r'?(D.pr[n]||DEF[u.amb].pr):'Consultar'));
+ const pf=$('cplano');if(pf){pf.querySelector('img').src=PLANO[u.amb];pf.querySelector('figcaption').textContent='Plano de la unidad · Dúplex de '+u.amb+' ambientes · tocá para ampliar'}
  put('Estado',st?ST[st].t:'A estrenar');
  const vs=st==='v'?[]:vendsFor(u).filter(v=>v.t),wa=WA&&!vs.length&&st!=='v'?[{n:'Ventas',t:WA}]:vs;
  wbox.innerHTML=st==='v'?'<p class="note">Esta unidad ya fue vendida. Mirá las disponibles con el filtro "Solo disponibles".</p>':
@@ -540,8 +550,8 @@ function admRender(u){const n=u.n,st=D.st[n]||'';
  abox.className='adm';abox.innerHTML='<h4>Editar unidad '+n+'</h4><div class="sts">'+[['d','Disponible'],['r','Reservada'],['v','Vendida'],['','Sin dato']].map(([k,t])=>'<button data-s="'+k+'" aria-pressed="'+(st===k)+'">'+t+'</button>').join('')+'</div>'+
  '<div class="row2"><label>Tipología<select id="ctp"><option value="3"'+(u.amb===3?' selected':'')+'>3 ambientes</option><option value="4"'+(u.amb===4?' selected':'')+'>4 ambientes</option></select></label>'+
  '<label>Vendedor<select id="clv">'+vOpts(D.lv[n],'Automático')+'</select></label></div>'+
- '<div class="row2"><label>Precio<input id="cpr" maxlength="30" placeholder="USD 143.000" value="'+esc(D.pr[n]||'')+'"></label>'+
- '<label>Superficie<input id="csu" maxlength="30" placeholder="120 m²" value="'+esc(D.sup[n]||'')+'"></label></div>';
+ '<div class="row2"><label>Precio<input id="cpr" maxlength="30" placeholder="'+DEF[u.amb].pr+'" value="'+esc(D.pr[n]||'')+'"></label>'+
+ '<label>Superficie<input id="csu" maxlength="30" placeholder="'+DEF[u.amb].sup+'" value="'+esc(D.sup[n]||'')+'"></label></div>';
  abox.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{const k=b.dataset.s;if(k)D.st[n]=k;else delete D.st[n];save('Unidad '+n+': '+(k?ST[k].t:'sin dato'));paintAll();open(n)});
  $('ctp').onchange=e=>{const v=+e.target.value;if(v===u.base)delete D.tp[n];else D.tp[n]=v;save('Unidad '+n+': '+v+' ambientes');paintAll();open(n)};
  $('clv').onchange=e=>{if(e.target.value)D.lv[n]=e.target.value;else delete D.lv[n];save('Unidad '+n+': vendedor');open(n)};
